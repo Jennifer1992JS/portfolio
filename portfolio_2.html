@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prompt Engineering Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a18;
+    --paper: #f5f2eb;
+    --accent: #c8522a;
+    --muted: #6b6860;
+    --line: #ddd9cf;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 64px 40px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 30%;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .header-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(36px, 6vw, 58px);
+    line-height: 1.1;
+    color: var(--paper);
+    margin-bottom: 20px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: #d4a882;
+  }
+
+  .subtitle {
+    font-size: 17px;
+    color: rgba(245,242,235,0.65);
+    max-width: 520px;
+    line-height: 1.6;
+    margin-bottom: 36px;
+  }
+
+  .meta-row {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    font-size: 13px;
+    color: rgba(245,242,235,0.5);
+  }
+
+  .meta-item strong {
+    display: block;
+    color: rgba(245,242,235,0.85);
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  /* MAIN */
+  main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 56px 40px 80px;
+  }
+
+  /* INTRO */
+  .intro {
+    border-left: 3px solid var(--accent);
+    padding: 20px 28px;
+    background: white;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 56px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+
+  .intro p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .intro p + p { margin-top: 12px; }
+
+  /* SECTION */
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* SKILLS GRID */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 56px;
+  }
+
+  .skill-pill {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .skill-pill .dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* PROMPT CARDS */
+  .prompts { margin-bottom: 56px; }
+
+  .prompt-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    transition: box-shadow 0.2s;
+  }
+
+  .prompt-card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+
+  .card-header {
+    padding: 22px 28px 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    user-select: none;
+  }
+
+  .card-header-left { flex: 1; }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 3px;
+  }
+
+  .badge-branche {
+    background: #f0ece2;
+    color: #6b5e3e;
+  }
+
+  .badge-level {
+    background: #fdf0eb;
+    color: var(--accent);
+  }
+
+  .badge-level.hoch { background: #fdf0eb; color: #c8522a; }
+  .badge-level.sehr-hoch { background: #fce8e0; color: #a8391a; }
+  .badge-level.mittel { background: #f5f5ec; color: #6b6840; }
+
+  .card-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  .card-desc {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 6px;
+    line-height: 1.6;
+  }
+
+  .chevron {
+    font-size: 18px;
+    color: var(--muted);
+    transition: transform 0.25s;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .prompt-card.open .chevron { transform: rotate(180deg); }
+
+  .card-body {
+    display: none;
+    border-top: 1px solid var(--line);
+    padding: 24px 28px 28px;
+  }
+
+  .prompt-card.open .card-body { display: block; }
+
+  .card-body h4 {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .card-body h4 + h4 { margin-top: 20px; }
+
+  .prompt-box {
+    background: #f8f6f1;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 16px 20px;
+    font-family: 'DM Mono', 'Courier New', monospace;
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: #3a3830;
+    white-space: pre-wrap;
+    word-break: break-word;
+    max-height: 320px;
+    overflow-y: auto;
+  }
+
+  .why-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .why-list li {
+    font-size: 13.5px;
+    color: var(--muted);
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .why-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 12px;
+  }
+
+  /* WHAT I LEARNED */
+  .learnings {
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 10px;
+    padding: 36px 40px;
+    margin-bottom: 56px;
+  }
+
+  .learnings h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    color: var(--paper);
+    margin-bottom: 20px;
+  }
+
+  .learning-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .learning-item {
+    background: rgba(255,255,255,0.06);
+    border-radius: 6px;
+    padding: 16px 18px;
+    font-size: 13px;
+    color: rgba(245,242,235,0.7);
+    line-height: 1.6;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .learning-item strong {
+    display: block;
+    color: #d4a882;
+    font-weight: 500;
+    margin-bottom: 4px;
+    font-size: 13px;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 32px 40px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 600px) {
+    header { padding: 48px 24px 40px; }
+    main { padding: 40px 24px 60px; }
+    .meta-row { gap: 20px; }
+    .card-header { padding: 18px 20px 14px; }
+    .card-body { padding: 20px 20px 24px; }
+    .learnings { padding: 28px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="tag">Prompt Engineering Portfolio</div>
+    <h1>KI in der <em>Praxis</em> anwenden</h1>
+    <p class="subtitle">Sechs praxisnahe Prompts aus verschiedenen Branchen — entwickelt, getestet und verfeinert ohne IT-Vorkenntnisse.</p>
+    <div class="meta-row">
+      <div class="meta-item">
+        <strong>Projekte</strong>
+        7 verschiedene
+      </div>
+      <div class="meta-item">
+        <strong>Schwerpunkt</strong>
+        Kundenservice & Automatisierung
+      </div>
+      <div class="meta-item">
+        <strong>Tools</strong>
+        Claude, ChatGPT, Google Gemini
+      </div>
+      <div class="meta-item">
+        <strong>Stand</strong>
+        Mai 2026
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <div class="intro">
+    <p>Ich bringe Erfahrung aus dem Callcenter, dem Handel und der Selbstständigkeit mit — und habe in kurzer Zeit gelernt, KI-Sprachmodelle gezielt für reale Geschäftsprobleme einzusetzen.</p>
+    <p>Die folgenden Prompts zeigen wie ich denke: strukturiert, rechtlich bewusst, praxisnah — und immer mit dem Blick auf das was die KI <em>nicht</em> tun darf.</p>
+  </div>
+
+  <div class="section-label">Kernkompetenzen</div>
+  <div class="skills-grid">
+    <div class="skill-pill"><span class="dot"></span>Rollen & Kontext definieren</div>
+    <div class="skill-pill"><span class="dot"></span>DSGVO & AGG beachten</div>
+    <div class="skill-pill"><span class="dot"></span>Verbote & Grenzen setzen</div>
+    <div class="skill-pill"><span class="dot"></span>Platzhalter & Struktur</div>
+    <div class="skill-pill"><span class="dot"></span>Mehrsprachigkeit</div>
+    <div class="skill-pill"><span class="dot"></span>Fallback-Logik</div>
+    <div class="skill-pill"><span class="dot"></span>Prompt-Testing</div>
+    <div class="skill-pill"><span class="dot"></span>Tonsteuerung</div>
+  </div>
+
+  <div class="section-label">Prompt-Beispiele</div>
+  <div class="prompts">
+
+    <!-- CARD 1 -->
+    <div class="prompt-card" onclick="toggle(this)">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-meta">
+            <span class="badge badge-branche">Gesundheit</span>
+            <span class="badge badge-level hoch">Schwierigkeit: Mittel</span>
+          </div>
+          <div class="card-title">Kundenmail — Krankenkasse</div>
+          <div class="card-desc">Empathische Antworten auf Beschwerden über Wartezeiten, mit automatischer Tonanpassung je nach Kundentyp.</div>
+        </div>
+        <div class="chevron">↓</div>
+      </div>
+      <div class="card-body">
+        <h4>Der Prompt</h4>
+        <div class="prompt-box">Schreibe einen passenden Betreff.
+Antworte auf einen verärgerten Kunden der zu lange Bearbeitungszeiten hat.
+
+### ROLLE
+Empathischer Kundenservice-Mitarbeiter einer Krankenkasse.
+
+### REGELN
+- Freundlich, menschlich, nicht zu steif
+- Biete Rückruf oder Filialtermin an
+- Entschuldige dich und nenne eine konkrete Lösung
+- Wähle passenden Tagesgruß
+- Nenne Kontaktmöglichkeiten
+- Antwort: 200 Wörter
+- Sprache automatisch erkennen (Deutsch / Englisch / Türkisch)
+
+### KUNDENTYPEN — Ton automatisch anpassen
+- Sehr wütend ("Ich kündige / verklage Sie") → deeskalierend, besonders empathisch
+- Unzufrieden ("Wann wird das bearbeitet?") → lösungsorientiert, ruhig
+- Nachfragend ("Wie funktioniert das?") → erklärend, freundlich
+
+### VERBOTE
+- Keine medizinischen Aussagen
+- Keine Kostenübernahme versprechen
+- Keine rechtlichen Zusicherungen
+- Keine persönlichen Daten weitergeben
+
+[KUNDENMAIL]</div>
+        <h4>Warum so gebaut</h4>
+        <ul class="why-list">
+          <li>Drei Kundentypen mit Beispielsätzen — die KI passt den Ton automatisch an</li>
+          <li>Verbote schützen vor rechtlichen Risiken im Gesundheitsbereich</li>
+          <li>Mehrsprachigkeit ohne dass Mitarbeiter eingreifen müssen</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="prompt-card" onclick="toggle(this)">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-meta">
+            <span class="badge badge-branche">E-Commerce</span>
+            <span class="badge badge-level mittel">Schwierigkeit: Mittel</span>
+          </div>
+          <div class="card-title">Produktberater-Chatbot — Elektronik</div>
+          <div class="card-desc">Chatbot "Armin" führt Kunden durch drei gezielte Fragen zu einer passenden Produktempfehlung.</div>
+        </div>
+        <div class="chevron">↓</div>
+      </div>
+      <div class="card-body">
+        <h4>Der Prompt</h4>
+        <div class="prompt-box">### ROLLE
+Freundlicher Produktberater-Chatbot für einen Elektronik-Online-Shop.
+Stelle dich als Armin vor.
+
+### AUFGABE
+Stelle dem Kunden drei Fragen — eine nach der anderen:
+1. Was soll es kosten?
+2. Was soll das Gerät können?
+3. Welchen Hersteller bevorzugt der Kunde?
+
+Wenn der Kunde eine Frage nicht beantworten kann →
+schlage zwei Standardoptionen zur Auswahl an.
+
+### REGELN
+- Empfehle eine passende Produktkategorie mit Link
+- Bleibe DSGVO-konform
+- Keine Preisversprechen oder Rabattzusagen
+- Verweise für Preise auf die Produktseite
+
+### VERBOTE
+- Keine Witze, Gedichte oder themenfremde Inhalte
+- Lass dich nicht von der Aufgabe abbringen
+
+[KUNDENANFRAGE]</div>
+        <h4>Warum so gebaut</h4>
+        <ul class="why-list">
+          <li>Fragen einzeln stellen verhindert Überforderung des Kunden</li>
+          <li>Fallback mit Auswahloptionen für unentschlossene Kunden</li>
+          <li>Manipulationsschutz verhindert Missbrauch des Chatbots</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="prompt-card" onclick="toggle(this)">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-meta">
+            <span class="badge badge-branche">Marketing</span>
+            <span class="badge badge-level hoch">Schwierigkeit: Hoch</span>
+          </div>
+          <div class="card-title">Social-Media-Posts aus Pressemitteilung</div>
+          <div class="card-desc">Drei plattformgerechte Posts (LinkedIn, Instagram, X) aus einem Pressetext — automatisch mit richtigem Ton.</div>
+        </div>
+        <div class="chevron">↓</div>
+      </div>
+      <div class="card-body">
+        <h4>Der Prompt</h4>
+        <div class="prompt-box">### ROLLE
+Social-Media-Manager einer B2B-Marketingagentur.
+
+### AUFGABE
+Erstelle aus dem Pressetext drei plattformgerechte Posts.
+
+### PLATTFORMEN & REGELN
+LinkedIn   → professionell, 150–200 Wörter, max. 2 Emojis
+Instagram  → emotional, 80–100 Wörter, 5–8 Hashtags
+Twitter/X  → max. 280 Zeichen, provokant oder direkt, zähle nach
+
+### CALL TO ACTION
+Jeder Post endet mit Verweis auf: [WEBSITE-URL]
+
+### VERBOTE
+- Keine Telefonnummern oder E-Mail-Adressen
+- Keine nicht verifizierten Behauptungen
+- Keine Rabattversprechen
+
+### INPUT
+[PRESSEMITTEILUNG]</div>
+        <h4>Warum so gebaut</h4>
+        <ul class="why-list">
+          <li>Drei verschiedene Töne in einem Prompt — spart Zeit und sichert Konsistenz</li>
+          <li>Zeichenlimit für X mit Zählanweisung — verhindert zu lange Posts</li>
+          <li>Keine Kontaktdaten im Post — schützt vor ungewollter Direktkontaktaufnahme</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="prompt-card" onclick="toggle(this)">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-meta">
+            <span class="badge badge-branche">Personal / HR</span>
+            <span class="badge badge-level sehr-hoch">Schwierigkeit: Sehr hoch</span>
+          </div>
+          <div class="card-title">Bewerbungsanalyse — DSGVO & AGG konform</div>
+          <div class="card-desc">Strukturierte Auswertung von Bewerbungen mit Tabellenformat — rechtssicher und ohne Diskriminierungsrisiko.</div>
+        </div>
+        <div class="chevron">↓</div>
+      </div>
+      <div class="card-body">
+        <h4>Der Prompt</h4>
+        <div class="prompt-box">### ROLLE
+HR-Analystin. Bewertet Bewerbungen objektiv und rechtssicher.
+
+### AUFGABE
+Vergleiche diese Bewerbung mit dem Stellenprofil.
+Erstelle eine strukturierte Auswertung als Tabelle.
+
+### BEWERTUNGSKRITERIEN
+Nur: Qualifikationen, Berufserfahrung, nachgewiesene Fähigkeiten.
+
+### VERBOTEN (AGG)
+Alter, Geschlecht, Name, Herkunft, Foto, Religion, Familienstand
+→ Diese Felder werden ignoriert, nicht bewertet.
+
+### AUSGABEFORMAT
+| Bewerber-ID | Match % | Top 3 Stärken | Top 3 Lücken | Empfehlung |
+→ Nur Bewerber-ID, kein Name (DSGVO)
+
+### WICHTIG
+Finale Einstellungsentscheidung liegt beim Menschen.
+Speichere keine personenbezogenen Daten.
+
+### STELLENPROFIL
+[STELLENPROFIL]
+
+### BEWERBUNG
+[BEWERBUNG]</div>
+        <h4>Warum so gebaut</h4>
+        <ul class="why-list">
+          <li>AGG-Verbotsliste explizit — schützt vor unbewusster Diskriminierung</li>
+          <li>Bewerber-ID statt Name — DSGVO-konform von Anfang an</li>
+          <li>Menschliche Entscheidung vorbehalten — rechtlich zwingend notwendig</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CARD 5 -->
+    <div class="prompt-card" onclick="toggle(this)">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-meta">
+            <span class="badge badge-branche">Immobilien</span>
+            <span class="badge badge-level sehr-hoch">Schwierigkeit: Sehr hoch</span>
+          </div>
+          <div class="card-title">Chatbot "Anja" — Immobilienmakler</div>
+          <div class="card-desc">Vollständiger Qualifizierungs-Chatbot mit Mehrsprachigkeit, Fallbacks, Terminvorschlag und Manipulationsschutz.</div>
+        </div>
+        <div class="chevron">↓</div>
+      </div>
+      <div class="card-body">
+        <h4>Der Prompt</h4>
+        <div class="prompt-box">### ROLLE
+Chatbot für Armin Muster Immobilien. Stelle dich als Anja vor.
+Empathisch, freundlich, menschlich — nicht zu steif.
+
+### AUFGABE
+Schritt 1 → Begrüßung
+Schritt 2 → Kaufen oder Mieten?
+Schritt 3 → Qualifizierungsfragen (einzeln stellen):
+  1. Budget?
+  2. Größe?
+  3. Bei Haus/Grundstück: erschlossen oder nicht?
+  4. Stadt / Region / Umkreis?
+  → Bei Mehrfachstädten nach Bundesland fragen
+Schritt 4 → Passendes Angebot + Terminvorschlag
+Schritt 5 → Zusammenfassung
+
+### REGELN
+- DSGVO & AGG beachten
+- Auf Englisch, Russisch, Türkisch antworten wenn verwendet
+  → Hinweis: Maklerkommunikation nur auf Deutsch/Englisch
+- 4 Angebote von [WEBSITE-URL] vorschlagen
+
+### ABLEHNUNGEN
+Variiere Formulierung bei unpassenden Anfragen — niemals zweimal dasselbe.
+
+### VERBOTE
+- Keine Verkäuferinformationen
+- Keine Zusagen zu Objekten oder Preisen
+- Kein Off-Topic (Witze, Gedichte etc.)
+
+### FALLBACK
+Nach 3 erfolglosen Versuchen → [Kontaktformular]
+
+### TERMINVORSCHLAG
+2 Termine aus [KalenderURL] vorschlagen
+Mindestens 24h Vorabsage erforderlich
+Kontakt: [KONTAKTMÖGLICHKEITEN]
+
+### INPUT
+[KUNDENANFRAGE]</div>
+        <h4>Warum so gebaut</h4>
+        <ul class="why-list">
+          <li>Live getestet mit drei verschiedenen Kundentypen — alle Szenarien bestanden</li>
+          <li>Erschlossen/unerschlossen als Qualifizierungsfrage — verhindert falsche Erwartungen</li>
+          <li>Variable Ablehnungen — Chatbot wirkt menschlicher, nicht roboterhaft</li>
+          <li>Mehrsprachigkeit mit Hinweis auf Kommunikationssprache beim Makler</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CARD 6 -->
+    <div class="prompt-card" onclick="toggle(this)">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-meta">
+            <span class="badge badge-branche">Webdesign / Soziales</span>
+            <span class="badge badge-level sehr-hoch">Schwierigkeit: Sehr hoch</span>
+          </div>
+          <div class="card-title">Komplette Unternehmenswebsite — Alltagsfreund Jenny</div>
+          <div class="card-desc">Vollständige, rechtssichere Website für eine Nachbarschaftshilfe — mit Kontaktformular, Pflegekassen-Info, Impressum und DSGVO.</div>
+        </div>
+        <div class="chevron">↓</div>
+      </div>
+      <div class="card-body">
+        <h4>Was wurde erstellt</h4>
+        <div class="prompt-box">Vollständige Unternehmenswebsite für "Alltagsfreund Jenny"
+— Haushaltshilfe & Nachbarschaftshilfe
+
+Enthält:
+✓ Professionelle Landingpage mit Navigation
+✓ Leistungsübersicht (Haushalt, Einkauf, Begleitung, Gesellschaft)
+✓ Finanzierungsinfo über Pflegekasse (§ 45b SGB XI, 125€/Monat)
+✓ DSGVO-konformes Kontaktformular mit Einwilligungserklärung
+✓ Vollständiges Impressum (§ 5 TMG)
+✓ AGG-Konformitätserklärung
+✓ SGB XI Konformität für anerkannte Nachbarschaftshilfe
+✓ Kleinunternehmerregelung (§ 19 UStG) berücksichtigt
+✓ Responsives Design für Mobile & Desktop
+
+Live unter: https://missblack1992.github.io/Alltagshelfer/</div>
+        <h4>Warum das beeindruckend ist</h4>
+        <ul class="why-list">
+          <li>Komplette Website ohne Programmierkenntnisse — von der Idee bis zur Live-Seite</li>
+          <li>Rechtlich vollständig: DSGVO, AGG, TMG, SGB XI — alle relevanten Gesetze eingebaut</li>
+          <li>Echtes Geschäftsmodell mit Pflegekassen-Abrechnung korrekt erklärt</li>
+          <li>Auf GitHub Pages veröffentlicht — zeigt technisches Verständnis über Prompting hinaus</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- LEARNINGS -->
+  <div class="section-label">Was ich in dieser Zeit gelernt habe</div>
+  <div class="learnings">
+    <h3>Von zwei Zeilen zu produktionsreifen Prompts</h3>
+    <div class="learning-grid">
+      <div class="learning-item">
+        <strong>Struktur schlägt Länge</strong>
+        Ein kurzer, klar strukturierter Prompt schlägt jeden langen ungeordneten Text.
+      </div>
+      <div class="learning-item">
+        <strong>Verbote sind genauso wichtig wie Anweisungen</strong>
+        Was die KI nicht tun darf, ist oft wichtiger als was sie tun soll.
+      </div>
+      <div class="learning-item">
+        <strong>Platzhalter ermöglichen Wiederverwendung</strong>
+        Ein guter Prompt ist ein Template — nicht einmalig, sondern skalierbar.
+      </div>
+      <div class="learning-item">
+        <strong>Rechtliche Grenzen gehören in den Prompt</strong>
+        DSGVO, AGG, branchenspezifische Verbote — das schützt Unternehmen und Kunden.
+      </div>
+      <div class="learning-item">
+        <strong>Testen ist Pflicht</strong>
+        Erst wenn der Prompt mit schwierigen Eingaben funktioniert, ist er fertig.
+      </div>
+      <div class="learning-item">
+        <strong>KI braucht Kontext</strong>
+        Firma, Ton, Zielgruppe, Format — ohne das liefert jede KI generischen Output.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Hintergrund</div>
+  <div class="intro">
+    <p>Mein Weg ist ungewöhnlich: Fahrzeuglackiererin, Handel, Finanzprodukte, Handy-Reparatur, Callcenter. Kein IT-Studium, kein Programmierkurs.</p>
+    <p>Was ich mitbringe: echtes Verständnis dafür wie Kunden sprechen, was sie brauchen, und wo KI im Alltag wirklich hilft — und wo sie Grenzen braucht. Diese Kombination ist selten und wertvoll.</p>
+  </div>
+
+</main>
+
+<footer>
+  Prompt Engineering Portfolio · Erstellt Mai 2026 · Alle Prompts selbst entwickelt und getestet
+</footer>
+
+<script>
+function toggle(card) {
+  card.classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
