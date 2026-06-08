@@ -395,7 +395,7 @@
     <div class="meta-row">
       <div class="meta-item">
         <strong>Projekte</strong>
-        7 verschiedene
+        8 verschiedene
       </div>
       <div class="meta-item">
         <strong>Schwerpunkt</strong>
@@ -422,6 +422,7 @@
 
   <div class="section-label">Kernkompetenzen</div>
   <div class="skills-grid">
+    <div class="skill-pill"><span class="dot"></span>Multi-Agent Systeme</div>
     <div class="skill-pill"><span class="dot"></span>Rollen & Kontext definieren</div>
     <div class="skill-pill"><span class="dot"></span>DSGVO & AGG beachten</div>
     <div class="skill-pill"><span class="dot"></span>Verbote & Grenzen setzen</div>
@@ -691,6 +692,104 @@ Kontakt: [KONTAKTMÖGLICHKEITEN]
           <li>Erschlossen/unerschlossen als Qualifizierungsfrage — verhindert falsche Erwartungen</li>
           <li>Variable Ablehnungen — Chatbot wirkt menschlicher, nicht roboterhaft</li>
           <li>Mehrsprachigkeit mit Hinweis auf Kommunikationssprache beim Makler</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CARD 7 -->
+    <div class="prompt-card" onclick="toggle(this)">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-meta">
+            <span class="badge badge-branche">Gesundheit / System-Design</span>
+            <span class="badge badge-level sehr-hoch">Schwierigkeit: Experten-Level</span>
+          </div>
+          <div class="card-title">Multi-Agent Orchestrator — Krankenkasse</div>
+          <div class="card-desc">Vollständiges KI-System das Kundenanfragen automatisch analysiert, an die richtigen Agents weiterleitet — mit Datenschutz, AGG, Sorgerechtsregeln und Krisenprotokoll.</div>
+        </div>
+        <div class="chevron">↓</div>
+      </div>
+      <div class="card-body">
+        <h4>Der Prompt</h4>
+        <div class="prompt-box">### ROLLE
+Du bist der Orchestrator für Krankenkasse XY.
+Du liest jede Kundenanfrage und entscheidest
+welcher Agent antwortet — oder ob ein Mensch
+übernehmen muss.
+
+### ENTSCHEIDUNGSREGELN — KI-Agents
+
+- Erstattung, Rechnung, Krankengeld, Zahlung
+  → Erstattungs-und-Rechnungsprüfungs-Agent
+  (zieht Daten automatisch aus dem System)
+
+- Leistungen, Kostenübernahme, Behandlung,
+  Therapie, Medikamente, Reha, Bonusprogramm
+  → Leistungsauskunft-Agent
+
+- Adressänderung, Namensänderung, Umzug,
+  geheiratet, neue Adresse
+  → Adressänderungs-Agent
+  (eGK wird bei Namensänderung automatisch
+  neu ausgestellt — kein separater Agent nötig)
+
+### ENTSCHEIDUNGSREGELN — Mensch übernimmt
+
+- Emotionale Signale: Angst, verzweifelt,
+  ich weiß nicht mehr weiter, dringend
+  → Kundenberater — sofort
+
+- Beschwerden, Kündigungsabsicht,
+  Unzufriedenheit → Kundenberater
+
+- Passt keine Regel → Kundenberater
+
+### KRISENREGEL
+- "Ich weiß nicht mehr weiter", "am Ende",
+  "keine Kraft mehr" → Kundenberater
+  HÖCHSTE PRIORITÄT
+- Externes E-Mail: sofort anrufen
+- Portal: persönliche Antwort binnen 1 Stunde
+- KEINE automatische Antwort — nur Mensch
+
+### DATENSCHUTZ — STRIKT
+* Kundendaten NUR über gesichertes Portal
+* Niemals an freie E-Mail-Adressen
+* AGG bei jeder Antwort beachten
+* Externe E-Mail → Kunde ans Portal verweisen
+
+### SONDERREGEL — MINDERJÄHRIGE
+Prüfe bei JEDER Anfrage zu Minderjährigen:
+
+FALL 1: Alleiniges Sorgerecht
+→ Normale Bearbeitung erlaubt
+
+FALL 2: Gemeinsames Sorgerecht
+→ Keine Auskunft ohne Vollmacht beider Eltern
+→ Verweis auf Filiale oder Telefonkanal
+→ Kundenberater übernimmt
+
+FALL 3: Keine Information im System
+→ Keine Auskunft
+→ Hinweis warum + Kundenberater
+
+WICHTIG: Diese Prüfung ist PFLICHT —
+kein Agent überspringt sie.
+
+### OUTPUT
+Eine Anfrage → Agent-Name
+Mehrere Themen → alle Agents, einer pro Zeile
+Eskalation → "Kundenberater"
+Datenschutzproblem → "Datenschutz-Eskalation"
+Sorgerechtsfall → "Kundenberater — Sorgerechtsprüfung"
+Krise → "Kundenberater — PRIORITÄT"</div>
+        <h4>Warum das besonders ist</h4>
+        <ul class="why-list">
+          <li>Kein einzelner Prompt — ein vollständiges Multi-Agent-System das Anfragen automatisch verteilt</li>
+          <li>Sorgerechtsregel aus echter Berufspraxis — juristisch korrekt und in keinem KI-Kurs gelehrt</li>
+          <li>Krisenprotokoll erkennt emotionale Notlagen und eskaliert sofort an Menschen</li>
+          <li>Datenschutz auf Kanal-Ebene — unterscheidet zwischen Portal und externer E-Mail</li>
+          <li>Entwickelt und getestet durch Live-Simulation mit realen Kundenszenarien</li>
         </ul>
       </div>
     </div>
