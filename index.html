@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prompt Engineering Portfolio</title>
+<title>Prompt Engineering Portfolio & CV</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -25,7 +25,7 @@
     line-height: 1.7;
   }
 
-  /* HEADER */
+  /* HEADER WITH PROFILE IMAGE */
   header {
     background: var(--ink);
     color: var(--paper);
@@ -34,28 +34,42 @@
     overflow: hidden;
   }
 
-  header::before {
-    content: '';
-    position: absolute;
-    top: -60px; right: -60px;
-    width: 300px; height: 300px;
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.08);
-  }
-  header::after {
-    content: '';
-    position: absolute;
-    bottom: -80px; left: 30%;
-    width: 200px; height: 200px;
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.05);
-  }
-
   .header-inner {
     max-width: 860px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .header-text {
+    flex: 1;
+  }
+
+  /* Foto-Stil */
+  .profile-wrapper {
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .profile-image {
+    width: 140px;
+    height: 140px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 11px;
+    color: rgba(245, 242, 235, 0.4);
+    font-weight: 400;
+    padding: 10px;
   }
 
   .tag {
@@ -73,7 +87,7 @@
 
   h1 {
     font-family: 'DM Serif Display', serif;
-    font-size: clamp(36px, 6vw, 58px);
+    font-size: clamp(32px, 5vw, 52px);
     line-height: 1.1;
     color: var(--paper);
     margin-bottom: 20px;
@@ -135,7 +149,56 @@
 
   .intro p + p { margin-top: 12px; }
 
-  /* SECTION */
+  /* LEBENSLAUF STYLES */
+  .cv-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 56px;
+  }
+
+  .cv-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 16px;
+    background: white;
+    padding: 20px 24px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+  }
+
+  .cv-meta {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .cv-date {
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+
+  .cv-content h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 4px;
+    font-weight: 400;
+  }
+
+  .cv-location {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+
+  .cv-desc {
+    font-size: 14px;
+    color: #4a4840;
+  }
+
+  /* SECTION LABEL */
   .section-label {
     font-size: 11px;
     font-weight: 500;
@@ -146,6 +209,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
+    margin-top: 20px;
   }
 
   .section-label::after {
@@ -229,16 +293,8 @@
     border-radius: 3px;
   }
 
-  .badge-branche {
-    background: #f0ece2;
-    color: #6b5e3e;
-  }
-
-  .badge-level {
-    background: #fdf0eb;
-    color: var(--accent);
-  }
-
+  .badge-branche { background: #f0ece2; color: #6b5e3e; }
+  .badge-level { background: #fdf0eb; color: var(--accent); }
   .badge-level.hoch { background: #fdf0eb; color: #c8522a; }
   .badge-level.sehr-hoch { background: #fce8e0; color: #a8391a; }
   .badge-level.mittel { background: #f5f5ec; color: #6b6840; }
@@ -377,7 +433,10 @@
 
   @media (max-width: 600px) {
     header { padding: 48px 24px 40px; }
+    .header-inner { flex-direction: column-reverse; gap: 24px; }
+    .profile-image { width: 100px; height: 100px; }
     main { padding: 40px 24px 60px; }
+    .cv-item { grid-template-columns: 1fr; gap: 8px; }
     .meta-row { gap: 20px; }
     .card-header { padding: 18px 20px 14px; }
     .card-body { padding: 20px 20px 24px; }
@@ -389,25 +448,36 @@
 
 <header>
   <div class="header-inner">
-    <div class="tag">Prompt Engineering Portfolio</div>
-    <h1>KI in der <em>Praxis</em> anwenden</h1>
-    <p class="subtitle">Sechs praxisnahe Prompts aus verschiedenen Branchen — entwickelt, getestet und verfeinert ohne IT-Vorkenntnisse.</p>
-    <div class="meta-row">
-      <div class="meta-item">
-        <strong>Projekte</strong>
-        8 verschiedene
+    <div class="header-text">
+      <div class="tag">Portfolio & Werdegang</div>
+      <h1>KI in der <em>Praxis</em> anwenden</h1>
+      <p class="subtitle">Sechs praxisnahe Prompts aus verschiedenen Branchen — entwickelt, getestet und verfeinert ohne IT-Vorkenntnisse.</p>
+      <div class="meta-row">
+        <div class="meta-item">
+          <strong>Projekte</strong>
+          9 verschiedene
+        </div>
+        <div class="meta-item">
+          <strong>Schwerpunkt</strong>
+          Kundenservice & Automatisierung
+        </div>
+        <div class="meta-item">
+          <strong>Tools</strong>
+          Claude, ChatGPT, Google Gemini
+        </div>
+        <div class="meta-item">
+          <strong>Stand</strong>
+          Juni 2026
+        </div>
       </div>
-      <div class="meta-item">
-        <strong>Schwerpunkt</strong>
-        Kundenservice & Automatisierung
-      </div>
-      <div class="meta-item">
-        <strong>Tools</strong>
-        Claude, ChatGPT, Google Gemini
-      </div>
-      <div class="meta-item">
-        <strong>Stand</strong>
-        Mai 2026
+    </div>
+    
+    <!-- FOTO-PLATZHALTER: Ersetze "mein-foto.jpg" später durch dein echtes Bild -->
+    <div class="profile-wrapper">
+      <img src="mein-foto.jpg" alt="[Dein Foto Platzhalter]" class="profile-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="profile-image" style="display:none; flex-direction:column;">
+        <span>Foto folgt</span>
+        <span style="font-size:9px; margin-top:4px; opacity:0.6;">(Hier Bilddatei einfügen)</span>
       </div>
     </div>
   </div>
@@ -418,6 +488,60 @@
   <div class="intro">
     <p>Ich bringe Erfahrung aus dem Callcenter, dem Handel und der Selbstständigkeit mit — und habe in kurzer Zeit gelernt, KI-Sprachmodelle gezielt für reale Geschäftsprobleme einzusetzen.</p>
     <p>Die folgenden Prompts zeigen wie ich denke: strukturiert, rechtlich bewusst, praxisnah — und immer mit dem Blick auf das was die KI <em>nicht</em> tun darf.</p>
+  </div>
+
+  <!-- NEUER LEBENSLAUF-BEREICH -->
+  <div class="section-label">Beruflicher Werdegang</div>
+  <div class="cv-timeline">
+    
+    <div class="cv-item">
+      <div class="cv-meta">
+        <div class="cv-date">Aktuell (Seit 2025)</div>
+        <div>Fokus: KI & Automatisierung</div>
+      </div>
+      <div class="cv-content">
+        <h4>Prompt Engineering & Workflow-Optimierung</h4>
+        <div class="cv-location">Eigenständige Weiterbildung & Projektentwicklung</div>
+        <div class="cv-desc">Konzeption, Entwicklung und Testing komplexer, rechtssicherer System-Prompts (DSGVO/AGG) und Multi-Agenten-Architekturen für den Kundenservice. Veröffentlichung erster Web-Projekte über GitHub.</div>
+      </div>
+    </div>
+
+    <div class="cv-item">
+      <div class="cv-meta">
+        <div class="cv-date">Vorherige Stationen</div>
+        <div>Kommunikation & Service</div>
+      </div>
+      <div class="cv-content">
+        <h4>Callcenter- & Kundenservice-Spezialistin</h4>
+        <div class="cv-location">Inbound / Outbound / Support</div>
+        <div class="cv-desc">Direkte Kundenkommunikation, Beschwerdemanagement und lösungsorientierte Fallbearbeitung unter hohem Qualitätsanspruch. Fundiertes Praxiswissen über reale Nutzerprobleme und Service-Workflows.</div>
+      </div>
+    </div>
+
+    <div class="cv-item">
+      <div class="cv-meta">
+        <div class="cv-date">Technik & Beratung</div>
+        <div>Präzision & Vertrieb</div>
+      </div>
+      <div class="cv-content">
+        <h4>Handel, Beratung & Technische Reparaturen</h4>
+        <div class="cv-location">Selbstständigkeit & Angestelltenverhältnis</div>
+        <div class="cv-desc">Erfahrung im Vertrieb von Finanzprodukten sowie in der technischen, feingliedrigen Hardware-Reparatur (Smartphones/Elektronik). Stark ausgeprägtes logisches und analytisches Denken.</div>
+      </div>
+    </div>
+
+    <div class="cv-item">
+      <div class="cv-meta">
+        <div class="cv-date">Fundament</div>
+        <div>Handwerk & Struktur</div>
+      </div>
+      <div class="cv-content">
+        <h4>Fahrzeuglackiererin</h4>
+        <div class="cv-location">Ausbildung & Handwerk</div>
+        <div class="cv-desc">Ausbildung im klassischen Handwerk. Fokus auf höchste Präzision, methodisches Vorgehen, Strukturierung von Arbeitsprozessen und absolute Detailgenauigkeit.</div>
+      </div>
+    </div>
+
   </div>
 
   <div class="section-label">Kernkompetenzen</div>
@@ -640,7 +764,7 @@ Speichere keine personenbezogenen Daten.
             <span class="badge badge-level sehr-hoch">Schwierigkeit: Sehr hoch</span>
           </div>
           <div class="card-title">Chatbot "Anja" — Immobilienmakler</div>
-          <div class="card-desc">Vollständiger Qualifizierungs-Chatbot mit Mehrsprachigkeit, Fallbacks, Terminvorschlag und Manipulationsschutz.</div>
+          <div class="card-desc">Vollständiger Qualifizierungs-Chatbot mit Mehrsprachigkeit, Fallbacks, Terminvorschlägen und Manipulationsschutz.</div>
         </div>
         <div class="chevron">↓</div>
       </div>
@@ -692,6 +816,52 @@ Kontakt: [KONTAKTMÖGLICHKEITEN]
           <li>Erschlossen/unerschlossen als Qualifizierungsfrage — verhindert falsche Erwartungen</li>
           <li>Variable Ablehnungen — Chatbot wirkt menschlicher, nicht roboterhaft</li>
           <li>Mehrsprachigkeit mit Hinweis auf Kommunikationssprache beim Makler</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CARD 6 -->
+    <div class="prompt-card" onclick="toggle(this)">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-meta">
+            <span class="badge badge-branche">Kundenservice / Prozess-Design</span>
+            <span class="badge badge-level sehr-hoch">Schwierigkeit: Sehr hoch</span>
+          </div>
+          <div class="card-title">KI-gestütztes Ticket-Routing & User Guidance</div>
+          <div class="card-desc">Intelligentes System-Prompt-Regelwerk zur Analyse und Filterung von Kundenanfragen mit automatischem Vorab-Check und Eskalationsmatrix.</div>
+        </div>
+        <div class="chevron">↓</div>
+      </div>
+      <div class="card-body">
+        <h4>Der Prompt</h4>
+        <div class="prompt-box">### ROLLE
+Du bist ein erfahrener System-Orchestrator im Kundenservice. Deine Aufgabe ist es, Kundenanfragen zum Versandstatus präzise zu analysieren und nach vordefinierten Dringlichkeiten zuzuweisen.
+
+### 1. STATUS-PRÜFUNG (VORAB-CHECK)
+- WENN Sendung im System nachweislich zugestellt:
+  -> Direktantwort an Kunde: „Laut unseren Daten sollte Ihr Paket bereits bei Ihnen angekommen sein. Bitte prüfen Sie Nachbarn oder Ablageorte.“
+
+### 2. PRIORISIERUNGS- & ROUTING-MATRIX (Falls nicht zugestellt)
+- [PRIORITÄT: ÜBERFÄLLIG] Extreme Verzögerung / Stornierungsdrohung.
+  -> Aktion: Sofortige interne Weiterleitung an [ZUSTÄNDIGES_TEAM_VERSAND] zur telefonischen Rückfrage beim Versanddienstleister.
+- [PRIORITÄT: HOCH] Termingebundene Bestellung mit Sendungsstopp.
+  -> Aktion: Weiterleitung an spezialisierten Kundendienst zur manuellen Nachforschung.
+- [PRIORITÄT: MITTEL] Standard-Lieferzeit leicht überschritten.
+  -> Aktion: Agent kontaktiert Dienstleister selbst; Kunden-Info mit 24h Zeitfenster ("Wir kümmern uns sofort darum").
+- [PRIORITÄT: NIEDRIG] Erste Nachfrage kurz nach Fristablauf.
+  -> Aktion: Agent kontaktiert Dienstleister; Kunden-Info mit 48h Zeitfenster.
+
+### OUTPUTFORMAT
+- Ergebnis Vorab-Check: [Zustestellt -> Textbaustein / Nicht zugestellt -> Weiter]
+- Zugewiesene Priorität: [Überfällig / Hoch / Mittel / Niedrig]
+- Interne Aktion / Weiterleitung: [Ziel-Team]
+- Formulierung für den Kunden: [Konkreter Antworttext nach Zeitvorgabe]</div>
+        <h4>Warum so gebaut</h4>
+        <ul class="why-list">
+          <li>Automatischer Vorab-Check fängt gelöste Fälle sofort ab und entlastet das Team</li>
+          <li>Klares Regelwerk steuert kritische Vorfälle ("Überfällig") direkt an die Telefon-Schnittstelle im Versand</li>
+          <li>Integrierte Antwort-Zeitfenster sichern eine einheitliche, skalierbare User Guidance im Kundenservice</li>
         </ul>
       </div>
     </div>
@@ -777,7 +947,7 @@ WICHTIG: Diese Prüfung ist PFLICHT —
 kein Agent überspringt sie.
 
 ### OUTPUT
-Eine Anfrage → Agent-Name
+ Eine Anfrage → Agent-Name
 Mehrere Themen → alle Agents, einer pro Zeile
 Eskalation → "Kundenberater"
 Datenschutzproblem → "Datenschutz-Eskalation"
@@ -794,7 +964,7 @@ Krise → "Kundenberater — PRIORITÄT"</div>
       </div>
     </div>
 
-    <!-- CARD 6 -->
+    <!-- CARD 8 -->
     <div class="prompt-card" onclick="toggle(this)">
       <div class="card-header">
         <div class="card-header-left">
@@ -803,7 +973,7 @@ Krise → "Kundenberater — PRIORITÄT"</div>
             <span class="badge badge-level sehr-hoch">Schwierigkeit: Sehr hoch</span>
           </div>
           <div class="card-title">Komplette Unternehmenswebsite — Alltagsfreund Jenny</div>
-          <div class="card-desc">Vollständige, rechtssichere Website für eine Nachbarschaftshilfe — mit Kontaktformular, Pflegekassen-Info, Impressum und DSGVO.</div>
+          <div class="card-desc">Vollständige, rechtssichere Website für eine Nachbarschaftshilfe — inklusive Kontaktformular, Pflegekassen-Infoseite und vollständiger DSGVO-Konformität.</div>
         </div>
         <div class="chevron">↓</div>
       </div>
@@ -871,13 +1041,13 @@ Live unter: https://missblack1992.github.io/Alltagshelfer/</div>
   <div class="section-label">Hintergrund</div>
   <div class="intro">
     <p>Mein Weg ist ungewöhnlich: Fahrzeuglackiererin, Handel, Finanzprodukte, Handy-Reparatur, Callcenter. Kein IT-Studium, kein Programmierkurs.</p>
-    <p>Was ich mitbringe: echtes Verständnis dafür wie Kunden sprechen, was sie brauchen, und wo KI im Alltag wirklich hilft — und wo sie Grenzen braucht. Diese Kombination ist selten und wertvoll.</p>
+    <p>Was ich mitbringe: echtes Verständnis dafür, wie Kunden sprechen, was sie brauchen und wo KI im Alltag wirklich hilft — und wo sie Grenzen braucht. Diese Kombination ist selten und wertvoll. <strong>Da sich Technologie rasant entwickelt, nutze ich KI-Modelle täglich gezielt als interaktive Mentoren, um mich kontinuierlich in neuen technischen Systemen, Dokumentations-Standards und agilen Workflows weiterzubilden.</strong></p>
   </div>
 
 </main>
 
 <footer>
-  Prompt Engineering Portfolio · Erstellt Mai 2026 · Alle Prompts selbst entwickelt und getestet
+  Prompt Engineering Portfolio & CV · Erstellt Juni 2026 · Alle Prompts selbst entwickelt und getestet
 </footer>
 
 <script>
