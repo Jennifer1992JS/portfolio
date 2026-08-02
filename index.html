@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prompt Engineering Portfolio</title>
+<title>Prompt Engineering & KI-Automatisierung Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -87,7 +87,7 @@
   .subtitle {
     font-size: 17px;
     color: rgba(245,242,235,0.65);
-    max-width: 520px;
+    max-width: 580px;
     line-height: 1.6;
     margin-bottom: 36px;
   }
@@ -389,25 +389,25 @@
 
 <header>
   <div class="header-inner">
-    <div class="tag">Prompt Engineering Portfolio</div>
-    <h1>KI in der <em>Praxis</em> anwenden</h1>
-    <p class="subtitle">Sechs praxisnahe Prompts aus verschiedenen Branchen — entwickelt, getestet und verfeinert ohne IT-Vorkenntnisse.</p>
+    <div class="tag">Prompt Engineering & Automation Portfolio</div>
+    <h1>KI & <em>Automatisierung</em> in der Praxis</h1>
+    <p class="subtitle">Anwendungsnahes Prompt Engineering kombiniert mit n8n-Workflow-Automatisierung — entwickelt, orchestriert und verfeinert aus der Praxis heraus.</p>
     <div class="meta-row">
       <div class="meta-item">
         <strong>Projekte</strong>
-        9 verschiedene
+        12 realisierte Workflows & Systems
       </div>
       <div class="meta-item">
         <strong>Schwerpunkt</strong>
-        Kundenservice & Automatisierung
+        n8n Automatisierung & KI-Service
       </div>
       <div class="meta-item">
-        <strong>Tools</strong>
-        Claude, ChatGPT, Google Gemini
+        <strong>Tech Stack</strong>
+        n8n (Self-Hosted), Make, OpenAI, Claude, Gemini, Webhooks
       </div>
       <div class="meta-item">
         <strong>Stand</strong>
-        Mai 2026
+        August 2026
       </div>
     </div>
   </div>
@@ -416,28 +416,120 @@
 <main>
 
   <div class="intro">
-    <p>Ich bringe Erfahrung aus dem Callcenter, dem Handel und der Selbstständigkeit mit — und habe in kurzer Zeit gelernt, KI-Sprachmodelle gezielt für reale Geschäftsprobleme einzusetzen.</p>
-    <p>Die folgenden Prompts zeigen wie ich denke: strukturiert, rechtlich bewusst, praxisnah — und immer mit dem Blick auf das was die KI <em>nicht</em> tun darf.</p>
+    <p>Ich verknüpfe fundierte Praxiserfahrung aus Callcenter, Kundenservice und Selbstständigkeit mit moderner KI-Orchestrierung. Mein Fokus liegt darauf, Sprachmodelle nicht nur isoliert zu nutzen, sondern sie über <strong>n8n und No-Code-Workflows</strong> nahtlos in reale Arbeitsprozesse einzubinden.</p>
+    <p>Die folgenden Beispiele zeigen mein Systemdenken: modular strukturierte Prompts, automatisierte Webhook-Pipelines, rechtliche Sicherheitsnetze (DSGVO/AGG) und strikte Fallback-Logiken.</p>
   </div>
 
-  <div class="section-label">Kernkompetenzen</div>
+  <div class="section-label">Kernkompetenzen & Tech-Skills</div>
   <div class="skills-grid">
+    <div class="skill-pill"><span class="dot"></span>n8n Workflows & Self-Hosting</div>
+    <div class="skill-pill"><span class="dot"></span>Webhook & API-Anbindungen</div>
     <div class="skill-pill"><span class="dot"></span>Multi-Agent Systeme</div>
-    <div class="skill-pill"><span class="dot"></span>No-Code Automatisierung</div>
-    <div class="skill-pill"><span class="dot"></span>Rollen & Kontext definieren</div>
-    <div class="skill-pill"><span class="dot"></span>DSGVO & AGG beachten</div>
-    <div class="skill-pill"><span class="dot"></span>Verbote & Grenzen setzen</div>
-    <div class="skill-pill"><span class="dot"></span>Platzhalter & Struktur</div>
-    <div class="skill-pill"><span class="dot"></span>Mehrsprachigkeit</div>
-    <div class="skill-pill"><span class="dot"></span>Fallback-Logik</div>
-    <div class="skill-pill"><span class="dot"></span>Prompt-Testing</div>
-    <div class="skill-pill"><span class="dot"></span>Tonsteuerung</div>
+    <div class="skill-pill"><span class="dot"></span>JSON Data Transformation</div>
+    <div class="skill-pill"><span class="dot"></span>System-Prompts & Guardrails</div>
+    <div class="skill-pill"><span class="dot"></span>DSGVO & AGG Compliance</div>
+    <div class="skill-pill"><span class="dot"></span>Make.com / Automationen</div>
+    <div class="skill-pill"><span class="dot"></span>Fallback- & Error-Handling</div>
+    <div class="skill-pill"><span class="dot"></span>Tonsteuerung & Kundentypen</div>
+    <div class="skill-pill"><span class="dot"></span>Prompt-Testing & Routing</div>
   </div>
 
-  <div class="section-label">Prompt-Beispiele</div>
+  <div class="section-label">Automatisierungen & Prompt-Systeme</div>
   <div class="prompts">
 
-    <!-- CARD 1 -->
+    <!-- CARD 1: N8N AUTOMATION PIPELINE (NEU / SHOWCASE) -->
+    <div class="prompt-card" onclick="toggle(this)">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-meta">
+            <span class="badge badge-branche">Workflow Automation</span>
+            <span class="badge badge-level sehr-hoch">Schwierigkeit: Experten-Level</span>
+          </div>
+          <div class="card-title">n8n Pipeline — Automatisierte Prompt-Generierung</div>
+          <div class="card-desc">Self-Hosted n8n Workflow, der eingehende Rohdaten via Webhook erfasst, KI-System-Prompts dynamisch baut, validiert und als strukturierte JSON-Payload bereitstellt.</div>
+        </div>
+        <div class="chevron">↓</div>
+      </div>
+      <div class="card-body">
+        <h4>Workflow Architecture</h4>
+        <div class="prompt-box">TRIGGER (Webhook Node)
+→ Nimmt eintreffende Anwendungsfälle / Formular-Inputs entgegen
+
+DATA TRANSFORMATION (Edit Fields / Code Node)
+→ Bereinigt Strings, extrahiert Tonalität, Branche & Verbote
+→ Generiert dynamische Kontext-Variablen
+
+AI EXECUTION (OpenAI / Claude Node in n8n)
+→ Nutzt maßgeschneiderten Meta-Prompt für System-Prompt-Erstellung
+→ Injiziert Guardrails (DSGVO, AGG, Verbotene Phrasen)
+
+VALIDATION & ROUTING (Switch Node)
+→ Prüt KI-Output auf Format-Einhaltung & JSON-Syntax
+→ Bei Erfolg: Payload-Ausgabe an Zielsystem / Netlify App
+→ Bei Fehler: Fallback-Schleife mit Error-Notification</div>
+        <h4>Warum das besonders ist</h4>
+        <ul class="why-list">
+          <li>End-to-End Automatisierung in n8n ohne manuelles Copypasten</li>
+          <li>Umgang mit komplexen Data-Payloads & JSON-Strukturen</li>
+          <li>Eingebautes Fallback-Routing bei unerwartetem KI-Output</li>
+          <li>Skalierbar: Kann als Backend für Formulare, Chatbots oder Tools dienen</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CARD 2: N8N MULTI-AGENT ORCHESTRATOR -->
+    <div class="prompt-card" onclick="toggle(this)">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-meta">
+            <span class="badge badge-branche">Gesundheit / n8n System</span>
+            <span class="badge badge-level sehr-hoch">Schwierigkeit: Experten-Level</span>
+          </div>
+          <div class="card-title">n8n Multi-Agent Orchestrator — Krankenkasse</div>
+          <div class="card-desc">Vollständiges n8n-basiertes Routing-System für Kundenanfragen mit automatischem Agent-Splitting, Sorgerechtsprüfung und Krisen-Eskalation.</div>
+        </div>
+        <div class="chevron">↓</div>
+      </div>
+      <div class="card-body">
+        <h4>Der Orchestrator-Prompt (im n8n LLM Node)</h4>
+        <div class="prompt-box">### ROLLE
+Du bist der Orchestrator für Krankenkasse XY innerhalb der n8n-Workflow-Pipeline.
+Du analysierst die per JSON übergebene Kundenanfrage und bestimmst das exakte Routing.
+
+### ENTSCHEIDUNGSREGELN — KI-Agents
+- Erstattung, Rechnung, Krankengeld, Zahlung 
+  → Erstattungs-Agent (Signal: RESTART_PAYMENT)
+- Leistungen, Kostenübernahme, Behandlung, Reha 
+  → Leistungs-Agent (Signal: SERVICE_INFO)
+- Adressänderung, Namensänderung 
+  → Adress-Agent (Signal: ADDRESS_UPDATE)
+
+### ENTSCHEIDUNGSREGELN — MENSCH / ESKALATION
+- Emotionale Signale (Angst, Verzweiflung) → Mensch (Signal: HUMAN_ESCALATION)
+- Beschwerden, Kündigung → Mensch
+- Krisenbegriffe ("keine Kraft mehr", "am Ende") → Signal: CRISIS_PRIORITY
+
+### DATENSCHUTZ & SONDERREGELN
+- Externe E-Mail → Signal: VERIFY_PORTAL
+- Minderjährigen-Anfrage mit gemeinsamem Sorgerecht → Signal: CUSTODY_CHECK
+
+### OUTPUT FORMAT
+Gib AUSSCHLIESSLICH ein gültiges JSON zurück:
+{
+  "routing_target": "[SIGNAL]",
+  "priority": "HIGH/MEDIUM/LOW",
+  "reason": "Kurze Begründung"
+}</div>
+        <h4>Warum das besonders ist</h4>
+        <ul class="why-list">
+          <li>Verbindet komplexe System-Prompts direkt mit n8n Switch- & IF-Nodes</li>
+          <li>Strikte Ausgabe von JSON zur nahtlosen Weiterverarbeitung im nächsten Node</li>
+          <li>Praxisnahe Sonderregeln (Sorgerecht, DSGVO, Krisensignale) direkt im Routing verankert</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CARD 3: KRANKENKASSE MAIL -->
     <div class="prompt-card" onclick="toggle(this)">
       <div class="card-header">
         <div class="card-header-left">
@@ -445,7 +537,7 @@
             <span class="badge badge-branche">Gesundheit</span>
             <span class="badge badge-level hoch">Schwierigkeit: Mittel</span>
           </div>
-          <div class="card-title">Kundenmail — Krankenkasse</div>
+          <div class="card-title">Kundenmail-Generator — Krankenkasse</div>
           <div class="card-desc">Empathische Antworten auf Beschwerden über Wartezeiten, mit automatischer Tonanpassung je nach Kundentyp.</div>
         </div>
         <div class="chevron">↓</div>
@@ -464,7 +556,7 @@ Empathischer Kundenservice-Mitarbeiter einer Krankenkasse.
 - Entschuldige dich und nenne eine konkrete Lösung
 - Wähle passenden Tagesgruß
 - Nenne Kontaktmöglichkeiten
-- Antwort: 200 Wörter
+- Antwort: ~200 Wörter
 - Sprache automatisch erkennen (Deutsch / Englisch / Türkisch)
 
 ### KUNDENTYPEN — Ton automatisch anpassen
@@ -481,14 +573,14 @@ Empathischer Kundenservice-Mitarbeiter einer Krankenkasse.
 [KUNDENMAIL]</div>
         <h4>Warum so gebaut</h4>
         <ul class="why-list">
-          <li>Drei Kundentypen mit Beispielsätzen — die KI passt den Ton automatisch an</li>
+          <li>Drei Kundentypen mit Beispielsätzen — KI passt den Ton automatisch an</li>
           <li>Verbote schützen vor rechtlichen Risiken im Gesundheitsbereich</li>
-          <li>Mehrsprachigkeit ohne dass Mitarbeiter eingreifen müssen</li>
+          <li>Mehrsprachigkeit ohne manuelles Eingreifen</li>
         </ul>
       </div>
     </div>
 
-    <!-- CARD 2 -->
+    <!-- CARD 4: ELEKTRONIK CHATBOT -->
     <div class="prompt-card" onclick="toggle(this)">
       <div class="card-header">
         <div class="card-header-left">
@@ -497,7 +589,7 @@ Empathischer Kundenservice-Mitarbeiter einer Krankenkasse.
             <span class="badge badge-level mittel">Schwierigkeit: Mittel</span>
           </div>
           <div class="card-title">Produktberater-Chatbot — Elektronik</div>
-          <div class="card-desc">Chatbot "Armin" führt Kunden durch drei gezielte Fragen zu einer passenden Produktempfehlung.</div>
+          <div class="card-desc">Chatbot "Armin" führt Kunden durch drei gezielte Fragen zur passenden Produktempfehlung.</div>
         </div>
         <div class="chevron">↓</div>
       </div>
@@ -529,14 +621,14 @@ schlage zwei Standardoptionen zur Auswahl an.
 [KUNDENANFRAGE]</div>
         <h4>Warum so gebaut</h4>
         <ul class="why-list">
-          <li>Fragen einzeln stellen verhindert Überforderung des Kunden</li>
-          <li>Fallback mit Auswahloptionen für unentschlossene Kunden</li>
-          <li>Manipulationsschutz verhindert Missbrauch des Chatbots</li>
+          <li>Schrittweise Befragung verhindert Überforderung</li>
+          <li>Fallback mit Auswahloptionen für unentschlossene Nutzer</li>
+          <li>Manipulationsschutz gegen Off-Topic Prompt Injection</li>
         </ul>
       </div>
     </div>
 
-    <!-- CARD 3 -->
+    <!-- CARD 5: SOCIAL MEDIA POSTS -->
     <div class="prompt-card" onclick="toggle(this)">
       <div class="card-header">
         <div class="card-header-left">
@@ -544,7 +636,7 @@ schlage zwei Standardoptionen zur Auswahl an.
             <span class="badge badge-branche">Marketing</span>
             <span class="badge badge-level hoch">Schwierigkeit: Hoch</span>
           </div>
-          <div class="card-title">Social-Media-Posts aus Pressemitteilung</div>
+          <div class="card-title">Social-Media Multi-Channel Content Engine</div>
           <div class="card-desc">Drei plattformgerechte Posts (LinkedIn, Instagram, X) aus einem Pressetext — automatisch mit richtigem Ton.</div>
         </div>
         <div class="chevron">↓</div>
@@ -574,14 +666,14 @@ Jeder Post endet mit Verweis auf: [WEBSITE-URL]
 [PRESSEMITTEILUNG]</div>
         <h4>Warum so gebaut</h4>
         <ul class="why-list">
-          <li>Drei verschiedene Töne in einem Prompt — spart Zeit und sichert Konsistenz</li>
-          <li>Zeichenlimit für X mit Zählanweisung — verhindert zu lange Posts</li>
-          <li>Keine Kontaktdaten im Post — schützt vor ungewollter Direktkontaktaufnahme</li>
+          <li>Drei Zielgruppen-Töne in einem einzigen Durchlauf</li>
+          <li>Strikte Längen- und Formatvorgaben pro Kanal</li>
+          <li>Vermeidung von ungewollter Kontaktdaten-Exposition</li>
         </ul>
       </div>
     </div>
 
-    <!-- CARD 4 -->
+    <!-- CARD 6: HR BEWERBUNGSANALYSE -->
     <div class="prompt-card" onclick="toggle(this)">
       <div class="card-header">
         <div class="card-header-left">
@@ -590,7 +682,7 @@ Jeder Post endet mit Verweis auf: [WEBSITE-URL]
             <span class="badge badge-level sehr-hoch">Schwierigkeit: Sehr hoch</span>
           </div>
           <div class="card-title">Bewerbungsanalyse — DSGVO & AGG konform</div>
-          <div class="card-desc">Strukturierte Auswertung von Bewerbungen mit Tabellenformat — rechtssicher und ohne Diskriminierungsrisiko.</div>
+          <div class="card-desc">Strukturierte Auswertung von Bewerbungen im Tabellenformat — rechtssicher und ohne Diskriminierungsrisiko.</div>
         </div>
         <div class="chevron">↓</div>
       </div>
@@ -625,14 +717,14 @@ Speichere keine personenbezogenen Daten.
 [BEWERBUNG]</div>
         <h4>Warum so gebaut</h4>
         <ul class="why-list">
-          <li>AGG-Verbotsliste explizit — schützt vor unbewusster Diskriminierung</li>
-          <li>Bewerber-ID statt Name — DSGVO-konform von Anfang an</li>
-          <li>Menschliche Entscheidung vorbehalten — rechtlich zwingend notwendig</li>
+          <li>Anonymisierte Auswertung verhindert Diskriminierung nach AGG</li>
+          <li>DSGVO-Konformität durch Verzicht auf Namen & Rohdaten-Speicherung</li>
+          <li>Klare Schnittstelle für die finale Entscheidung durch HR-Teams</li>
         </ul>
       </div>
     </div>
 
-    <!-- CARD 5 -->
+    <!-- CARD 7: CHATBOT ANJA IMMOBILIEN -->
     <div class="prompt-card" onclick="toggle(this)">
       <div class="card-header">
         <div class="card-header-left">
@@ -640,8 +732,8 @@ Speichere keine personenbezogenen Daten.
             <span class="badge badge-branche">Immobilien</span>
             <span class="badge badge-level sehr-hoch">Schwierigkeit: Sehr hoch</span>
           </div>
-          <div class="card-title">Chatbot "Anja" — Immobilienmakler</div>
-          <div class="card-desc">Vollständiger Qualifizierungs-Chatbot mit Mehrsprachigkeit, Fallbacks, Terminvorschlag und Manipulationsschutz.</div>
+          <div class="card-title">Chatbot "Anja" — Immobilienmakler Lead-Qualifizierung</div>
+          <div class="card-desc">Vollständiger Qualifizierungs-Chatbot mit Mehrsprachigkeit, Fallbacks, Terminvorschlag und Schutz gegen Manipulation.</div>
         </div>
         <div class="chevron">↓</div>
       </div>
@@ -659,143 +751,33 @@ Schritt 3 → Qualifizierungsfragen (einzeln stellen):
   2. Größe?
   3. Bei Haus/Grundstück: erschlossen oder nicht?
   4. Stadt / Region / Umkreis?
-  → Bei Mehrfachstädten nach Bundesland fragen
 Schritt 4 → Passendes Angebot + Terminvorschlag
 Schritt 5 → Zusammenfassung
 
 ### REGELN
 - DSGVO & AGG beachten
 - Auf Englisch, Russisch, Türkisch antworten wenn verwendet
-  → Hinweis: Maklerkommunikation nur auf Deutsch/Englisch
 - 4 Angebote von [WEBSITE-URL] vorschlagen
-
-### ABLEHNUNGEN
-Variiere Formulierung bei unpassenden Anfragen — niemals zweimal dasselbe.
-
-### VERBOTE
-- Keine Verkäuferinformationen
-- Keine Zusagen zu Objekten oder Preisen
-- Kein Off-Topic (Witze, Gedichte etc.)
 
 ### FALLBACK
 Nach 3 erfolglosen Versuchen → [Kontaktformular]
 
 ### TERMINVORSCHLAG
 2 Termine aus [KalenderURL] vorschlagen
-Mindestens 24h Vorabsage erforderlich
 Kontakt: [KONTAKTMÖGLICHKEITEN]
 
 ### INPUT
 [KUNDENANFRAGE]</div>
         <h4>Warum so gebaut</h4>
         <ul class="why-list">
-          <li>Live getestet mit drei verschiedenen Kundentypen — alle Szenarien bestanden</li>
-          <li>Erschlossen/unerschlossen als Qualifizierungsfrage — verhindert falsche Erwartungen</li>
-          <li>Variable Ablehnungen — Chatbot wirkt menschlicher, nicht roboterhaft</li>
-          <li>Mehrsprachigkeit mit Hinweis auf Kommunikationssprache beim Makler</li>
+          <li>Gezielte Immobilien-Qualifizierung (z. B. Erschließungsstatus)</li>
+          <li>Variable Formulierungen verhindern roboterhafte Wirkung</li>
+          <li>Automatische Fallback-Logik bei unklaren Kundeneingaben</li>
         </ul>
       </div>
     </div>
 
-    <!-- CARD 7 -->
-    <div class="prompt-card" onclick="toggle(this)">
-      <div class="card-header">
-        <div class="card-header-left">
-          <div class="card-meta">
-            <span class="badge badge-branche">Gesundheit / System-Design</span>
-            <span class="badge badge-level sehr-hoch">Schwierigkeit: Experten-Level</span>
-          </div>
-          <div class="card-title">Multi-Agent Orchestrator — Krankenkasse</div>
-          <div class="card-desc">Vollständiges KI-System das Kundenanfragen automatisch analysiert, an die richtigen Agents weiterleitet — mit Datenschutz, AGG, Sorgerechtsregeln und Krisenprotokoll.</div>
-        </div>
-        <div class="chevron">↓</div>
-      </div>
-      <div class="card-body">
-        <h4>Der Prompt</h4>
-        <div class="prompt-box">### ROLLE
-Du bist der Orchestrator für Krankenkasse XY.
-Du liest jede Kundenanfrage und entscheidest
-welcher Agent antwortet — oder ob ein Mensch
-übernehmen muss.
-
-### ENTSCHEIDUNGSREGELN — KI-Agents
-
-- Erstattung, Rechnung, Krankengeld, Zahlung
-  → Erstattungs-und-Rechnungsprüfungs-Agent
-  (zieht Daten automatisch aus dem System)
-
-- Leistungen, Kostenübernahme, Behandlung,
-  Therapie, Medikamente, Reha, Bonusprogramm
-  → Leistungsauskunft-Agent
-
-- Adressänderung, Namensänderung, Umzug,
-  geheiratet, neue Adresse
-  → Adressänderungs-Agent
-  (eGK wird bei Namensänderung automatisch
-  neu ausgestellt — kein separater Agent nötig)
-
-### ENTSCHEIDUNGSREGELN — Mensch übernimmt
-
-- Emotionale Signale: Angst, verzweifelt,
-  ich weiß nicht mehr weiter, dringend
-  → Kundenberater — sofort
-
-- Beschwerden, Kündigungsabsicht,
-  Unzufriedenheit → Kundenberater
-
-- Passt keine Regel → Kundenberater
-
-### KRISENREGEL
-- "Ich weiß nicht mehr weiter", "am Ende",
-  "keine Kraft mehr" → Kundenberater
-  HÖCHSTE PRIORITÄT
-- Externes E-Mail: sofort anrufen
-- Portal: persönliche Antwort binnen 1 Stunde
-- KEINE automatische Antwort — nur Mensch
-
-### DATENSCHUTZ — STRIKT
-* Kundendaten NUR über gesichertes Portal
-* Niemals an freie E-Mail-Adressen
-* AGG bei jeder Antwort beachten
-* Externe E-Mail → Kunde ans Portal verweisen
-
-### SONDERREGEL — MINDERJÄHRIGE
-Prüfe bei JEDER Anfrage zu Minderjährigen:
-
-FALL 1: Alleiniges Sorgerecht
-→ Normale Bearbeitung erlaubt
-
-FALL 2: Gemeinsames Sorgerecht
-→ Keine Auskunft ohne Vollmacht beider Eltern
-→ Verweis auf Filiale oder Telefonkanal
-→ Kundenberater übernimmt
-
-FALL 3: Keine Information im System
-→ Keine Auskunft
-→ Hinweis warum + Kundenberater
-
-WICHTIG: Diese Prüfung ist PFLICHT —
-kein Agent überspringt sie.
-
-### OUTPUT
-Eine Anfrage → Agent-Name
-Mehrere Themen → alle Agents, einer pro Zeile
-Eskalation → "Kundenberater"
-Datenschutzproblem → "Datenschutz-Eskalation"
-Sorgerechtsfall → "Kundenberater — Sorgerechtsprüfung"
-Krise → "Kundenberater — PRIORITÄT"</div>
-        <h4>Warum das besonders ist</h4>
-        <ul class="why-list">
-          <li>Kein einzelner Prompt — ein vollständiges Multi-Agent-System das Anfragen automatisch verteilt</li>
-          <li>Sorgerechtsregel aus echter Berufspraxis — juristisch korrekt und in keinem KI-Kurs gelehrt</li>
-          <li>Krisenprotokoll erkennt emotionale Notlagen und eskaliert sofort an Menschen</li>
-          <li>Datenschutz auf Kanal-Ebene — unterscheidet zwischen Portal und externer E-Mail</li>
-          <li>Entwickelt und getestet durch Live-Simulation mit realen Kundenszenarien</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- CARD 8 -->
+    <!-- CARD 8: EXPOSÉ AUTOMATION MAKE / N8N -->
     <div class="prompt-card" onclick="toggle(this)">
       <div class="card-header">
         <div class="card-header-left">
@@ -803,41 +785,39 @@ Krise → "Kundenberater — PRIORITÄT"</div>
             <span class="badge badge-branche">Immobilien / Automation</span>
             <span class="badge badge-level sehr-hoch">Schwierigkeit: Sehr hoch</span>
           </div>
-          <div class="card-title">Real Estate Exposé Automation — Make & Google AI</div>
-          <div class="card-desc">Vollautomatischer No-Code-Workflow der aus Objektdaten via KI verkaufsfördernde Immobilien-Exposés in zwei Tonalitäten generiert und direkt als Google Doc bereitstellt.</div>
+          <div class="card-title">Real Estate Exposé Automation — Workflow & KI</div>
+          <div class="card-desc">Vollautomatischer Workflow, der aus Objektdaten via KI verkaufsfördernde Immobilien-Exposés in zwei Tonalitäten generiert und als Doc bereitstellt.</div>
         </div>
         <div class="chevron">↓</div>
       </div>
       <div class="card-body">
         <h4>Wie es funktioniert</h4>
         <div class="prompt-box">INPUT
-→ Google Forms erfasst Objektdaten
+→ Google Forms / Formular erfasst Objektdaten 
   (Preis, Fläche, Lage + emotionale Freitext-Notizen)
-→ Google Sheets speichert alle Einträge
+→ Datenbank / Sheet speichert Eintrags-Payload
 
-VERARBEITUNG (Make-Szenario)
+VERARBEITUNG (Automation Workflow)
 → Überwacht automatisch neue Formular-Einträge
-→ Google Gemini AI analysiert Fakten + Freitexte
+→ Gemini / OpenAI LLM analysiert Fakten + Freitexte
 → Router entscheidet Tonalität:
    - Pfad 1 "sachlich"   → fachlich-präzises Exposé
    - Pfad 2 "einladend"  → emotional-einladendes Exposé
-→ Google Sheets wird mit Status aktualisiert
+→ Status-Update in Datenbank
 
 OUTPUT
 → Fertiges Exposé automatisch in Google Docs erstellt
-→ Bereit zur weiteren Bearbeitung — kein manueller Aufwand</div>
-        <h4>Tech-Stack & besondere Features</h4>
+→ Bereit zur Freigabe — spart 80% der manuellen Erstellzeit</div>
+        <h4>Tech-Stack & Features</h4>
         <ul class="why-list">
-          <li>Komplett No-Code — Google Forms, Sheets, Make, Gemini AI, Google Docs nahtlos verbunden</li>
-          <li>Dynamische Tonalität: sachlich oder einladend — per Router automatisch gesteuert</li>
-          <li>Hybrid-Modell: strukturierte Daten kombiniert mit Freitext für persönlichen Touch</li>
-          <li>Wartungsarm: läuft vollautomatisch ohne Programmieraufwand oder manuellen Eingriff</li>
-          <li>Skalierbar: jedes neue Objekt im Formular löst den gesamten Workflow automatisch aus</li>
+          <li>Workflow-Orchestrierung verbindet Formular, KI, Sheets und Docs</li>
+          <li>Dynamische Tonalität: sachlich oder emotional-einladend</li>
+          <li>Verbindung von strukturierten Daten mit Freitext für maximale Qualität</li>
         </ul>
       </div>
     </div>
 
-    <!-- CARD 6 -->
+    <!-- CARD 9: WEBSITE JENNY -->
     <div class="prompt-card" onclick="toggle(this)">
       <div class="card-header">
         <div class="card-header-left">
@@ -845,34 +825,29 @@ OUTPUT
             <span class="badge badge-branche">Webdesign / Soziales</span>
             <span class="badge badge-level sehr-hoch">Schwierigkeit: Sehr hoch</span>
           </div>
-          <div class="card-title">Komplette Unternehmenswebsite — Alltagsfreund Jenny</div>
-          <div class="card-desc">Vollständige, rechtssichere Website für eine Nachbarschaftshilfe — mit Kontaktformular, Pflegekassen-Info, Impressum und DSGVO.</div>
+          <div class="card-title">Unternehmenswebsite & Rechtstexte — Alltagsfreund Jenny</div>
+          <div class="card-desc">Vollständige, rechtssichere Web-Präsenz für eine Nachbarschaftshilfe — inklusive Pflegekassen-Abrechnungsinfos, Impressum & DSGVO.</div>
         </div>
         <div class="chevron">↓</div>
       </div>
       <div class="card-body">
-        <h4>Was wurde erstellt</h4>
-        <div class="prompt-box">Vollständige Unternehmenswebsite für "Alltagsfreund Jenny"
-— Haushaltshilfe & Nachbarschaftshilfe
+        <h4>Umfang des Projekts</h4>
+        <div class="prompt-box">Unternehmenswebsite für "Alltagsfreund Jenny" (Haushaltshilfe & Nachbarschaftshilfe)
 
 Enthält:
-✓ Professionelle Landingpage mit Navigation
-✓ Leistungsübersicht (Haushalt, Einkauf, Begleitung, Gesellschaft)
-✓ Finanzierungsinfo über Pflegekasse (§ 45b SGB XI, 125€/Monat)
-✓ DSGVO-konformes Kontaktformular mit Einwilligungserklärung
-✓ Vollständiges Impressum (§ 5 TMG)
-✓ AGG-Konformitätserklärung
-✓ SGB XI Konformität für anerkannte Nachbarschaftshilfe
-✓ Kleinunternehmerregelung (§ 19 UStG) berücksichtigt
-✓ Responsives Design für Mobile & Desktop
+✓ Landingpage mit klarer Leistungsübersicht
+✓ Pflegekassen-Finanzierungsinfo (§ 45b SGB XI, 125€/Monat)
+✓ DSGVO-konformes Kontaktformular & Einverständnis
+✓ Impressum (§ 5 TMG) & AGG-Konformitätserklärung
+✓ Berücksichtigung Kleinunternehmerregelung (§ 19 UStG)
+✓ Deployment via GitHub Pages / Netlify
 
 Live unter: https://missblack1992.github.io/Alltagshelfer/</div>
         <h4>Warum das beeindruckend ist</h4>
         <ul class="why-list">
-          <li>Komplette Website ohne Programmierkenntnisse — von der Idee bis zur Live-Seite</li>
-          <li>Rechtlich vollständig: DSGVO, AGG, TMG, SGB XI — alle relevanten Gesetze eingebaut</li>
-          <li>Echtes Geschäftsmodell mit Pflegekassen-Abrechnung korrekt erklärt</li>
-          <li>Auf GitHub Pages veröffentlicht — zeigt technisches Verständnis über Prompting hinaus</li>
+          <li>Erstellt ohne klassisches IT-Studium — mit Fokus auf funktionierenden Code & Rechtssicherheit</li>
+          <li>Korrekt abgebildetes Geschäftsmodell für Pflegekassen-Entlastungsbetrag</li>
+          <li>Eigenständig gehostet und gepflegt via GitHub Pages</li>
         </ul>
       </div>
     </div>
@@ -880,47 +855,47 @@ Live unter: https://missblack1992.github.io/Alltagshelfer/</div>
   </div>
 
   <!-- LEARNINGS -->
-  <div class="section-label">Was ich in dieser Zeit gelernt habe</div>
+  <div class="section-label">Praxiserkenntnisse & Prinzipien</div>
   <div class="learnings">
-    <h3>Von zwei Zeilen zu produktionsreifen Prompts</h3>
+    <h3>Von einzelnen Prompts zu robusten n8n-Pipelines</h3>
     <div class="learning-grid">
       <div class="learning-item">
+        <strong>Workflow-Orchestrierung</strong>
+        Ein Prompt ist nur so gut wie das System drumherum. n8n verbindet KI-Power mit echten Business-APIs.
+      </div>
+      <div class="learning-item">
         <strong>Struktur schlägt Länge</strong>
-        Ein kurzer, klar strukturierter Prompt schlägt jeden langen ungeordneten Text.
+        Klar gegliederte System-Prompts mit XML-Tags oder Markdown führen zu verlässlichen, reproduzierbaren Outputs.
       </div>
       <div class="learning-item">
-        <strong>Verbote sind genauso wichtig wie Anweisungen</strong>
-        Was die KI nicht tun darf, ist oft wichtiger als was sie tun soll.
+        <strong>Verbote & Guardrails</strong>
+        Was die KI *nicht* tun darf, schützt Unternehmen vor Haftung, Halluzinationen und Prompt-Injections.
       </div>
       <div class="learning-item">
-        <strong>Platzhalter ermöglichen Wiederverwendung</strong>
-        Ein guter Prompt ist ein Template — nicht einmalig, sondern skalierbar.
+        <strong>JSON als Lingua Franca</strong>
+        Gezielte Output-Formatierung in JSON erlaubt die problemlose Weiterverarbeitung in n8n-Nodes & Datenbanken.
       </div>
       <div class="learning-item">
-        <strong>Rechtliche Grenzen gehören in den Prompt</strong>
-        DSGVO, AGG, branchenspezifische Verbote — das schützt Unternehmen und Kunden.
+        <strong>Rechtliche Leitplanken</strong>
+        DSGVO, AGG und branchenspezifische Vorgaben gehören als unumstößliche Regeln direkt in den System-Prompt.
       </div>
       <div class="learning-item">
-        <strong>Testen ist Pflicht</strong>
-        Erst wenn der Prompt mit schwierigen Eingaben funktioniert, ist er fertig.
-      </div>
-      <div class="learning-item">
-        <strong>KI braucht Kontext</strong>
-        Firma, Ton, Zielgruppe, Format — ohne das liefert jede KI generischen Output.
+        <strong>Iteratives Testing</strong>
+        Erst Stresstests mit fehlerhaften oder aggressiven Nutzereingaben machen eine Automatisierung produktionsreif.
       </div>
     </div>
   </div>
 
-  <div class="section-label">Hintergrund</div>
+  <div class="section-label">Hintergrund & Motivation</div>
   <div class="intro">
-    <p>Mein Weg ist ungewöhnlich: Fahrzeuglackiererin, Handel, Finanzprodukte, Handy-Reparatur, Callcenter. Kein IT-Studium, kein Programmierkurs.</p>
-    <p>Was ich mitbringe: echtes Verständnis dafür wie Kunden sprechen, was sie brauchen, und wo KI im Alltag wirklich hilft — und wo sie Grenzen braucht. Diese Kombination ist selten und wertvoll.</p>
+    <p>Mein Weg führt über echte Praxisstationen: Fahrzeuglackierung, Handel, Finanzbereich, Handy-Reparatur, Callcenter und Kundenservice. Ich kenne die realen Probleme, an denen Kundenschnittstellen im Alltag scheitern.</p>
+    <p>Diese Erfahrung kombiniere ich mit moderner Automatisierungstechnik (n8n, Make, Webhooks) und präzisem Prompt Engineering. Mein Ziel: Pragmatische Systeme bauen, die Arbeit abnehmen, rechtssicher sind und echten Mehrwert stiften.</p>
   </div>
 
 </main>
 
 <footer>
-  Prompt Engineering Portfolio · Erstellt Mai 2026 · Alle Prompts selbst entwickelt und getestet
+  Prompt Engineering & Automation Portfolio · Erstellt August 2026 · Alle Prompts & Workflows selbst entwickelt und getestet
 </footer>
 
 <script>
