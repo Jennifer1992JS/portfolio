@@ -24,7 +24,7 @@
 
   body {
     font-family: 'DM Sans', sans-serif;
-    background: #f0cc9c;
+    background: #171410;
     color: #f1e9df;
     font-size: 16px;
     line-height: 1.7;
@@ -101,7 +101,7 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: #d4a882;
-    border: 1px solid rgba(0,242,254,0.55);
+    border: 1px solid rgba(212,168,130,0.65);
     padding: 4px 12px;
     border-radius: 2px;
     margin-bottom: 24px;
@@ -111,14 +111,14 @@
     font-family: 'DM Serif Display', serif;
     font-size: clamp(36px, 6vw, 58px);
     line-height: 1.1;
-    color: var(--paper);
+    color: #f1e9df;
     margin-bottom: 20px;
   }
 
   h1 em {
     font-style: italic;
     color: var(--accent);
-    text-shadow: 0 0 30px rgba(0,242,254,0.20);
+    text-shadow: 0 0 22px rgba(212,168,130,0.10);
   }
 
   .subtitle {
@@ -1086,7 +1086,7 @@ Live unter: https://missblack1992.github.io/Alltagshelfer/</div>
 
         gl_Position = vec4(p, 0.0, 1.0);
         gl_PointSize = a_size * 0.8;
-        v_brightness = 0.18 + a_random * 0.32;
+        v_brightness = 0.16 + a_random * 0.28;
         v_color = a_random;
         v_palette = a_palette;
         return;
@@ -1110,7 +1110,7 @@ Live unter: https://missblack1992.github.io/Alltagshelfer/</div>
 
       gl_Position = vec4(p, 0.0, 1.0);
       gl_PointSize = a_size;
-      v_brightness = 0.30 + a_random * 0.58 + (1.0 - abs(x)) * 0.12;
+      v_brightness = 0.24 + a_random * 0.44 + (1.0 - abs(x)) * 0.10;
       v_color = 0.12 + a_random * 0.88;
       v_palette = a_palette;
     }
@@ -1149,7 +1149,7 @@ Live unter: https://missblack1992.github.io/Alltagshelfer/</div>
         baseColor = mix(purple, magenta, (v_palette - 0.82) / 0.18);
 
       vec3 color = mix(baseColor, whiteViolet, pow(v_color, 8.0) * 0.22);
-      float alpha = soft * (0.18 + v_brightness * 0.48) + core * 0.20;
+      float alpha = soft * (0.11 + v_brightness * 0.30) + core * 0.10;
       gl_FragColor = vec4(color * (0.78 + core * 0.65), alpha);
     }
   `;
