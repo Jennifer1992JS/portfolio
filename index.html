@@ -3,35 +3,71 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prompt Engineering & KI-Automatisierung Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>KI, Prompt Engineering & Automatisierung · Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #1a1a18;
-    --paper: #f5f2eb;
-    --accent: #c8522a;
-    --muted: #6b6860;
-    --line: #ddd9cf;
-    --card: #ffffff;
+    --ink: #f1e9df;
+    --paper: #171410;
+    --accent: #d4a882;
+    --accent-2: #9a7253;
+    --accent-3: #b99572;
+    --magenta: #c77788;
+    --muted: #b8aea2;
+    --line: rgba(212,168,130,0.18);
+    --card: rgba(20,18,15,0.30);
+    --card-hover: rgba(28,24,20,0.38);
+    --glass: rgba(20,18,15,0.30);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
     font-family: 'DM Sans', sans-serif;
-    background: var(--paper);
-    color: var(--ink);
+    background: #f0cc9c;
+    color: #f1e9df;
     font-size: 16px;
     line-height: 1.7;
+    min-height: 100vh;
+  }
+
+
+  #wave-background {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    display: block;
+    pointer-events: none;
+  }
+
+  header, main, footer {
+    position: relative;
+    z-index: 1;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background:
+      radial-gradient(circle at 16% 18%, rgba(184,111,61,0.08), transparent 30%),
+      radial-gradient(circle at 84% 22%, rgba(123,90,67,0.07), transparent 30%),
+      radial-gradient(circle at 50% 88%, rgba(168,91,112,0.045), transparent 30%);
   }
 
   /* HEADER */
   header {
-    background: var(--ink);
-    color: var(--paper);
-    padding: 64px 40px 56px;
+    background: linear-gradient(135deg, rgba(38,36,31,0.30), rgba(55,49,42,0.30));
+    color: #f4ece2;
+    padding: 72px 40px 62px;
     position: relative;
     overflow: hidden;
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+    backdrop-filter: blur(12px);
   }
 
   header::before {
@@ -64,8 +100,8 @@
     font-weight: 500;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--accent);
-    border: 1px solid var(--accent);
+    color: #d4a882;
+    border: 1px solid rgba(0,242,254,0.55);
     padding: 4px 12px;
     border-radius: 2px;
     margin-bottom: 24px;
@@ -81,7 +117,8 @@
 
   h1 em {
     font-style: italic;
-    color: #d4a882;
+    color: var(--accent);
+    text-shadow: 0 0 30px rgba(0,242,254,0.20);
   }
 
   .subtitle {
@@ -119,16 +156,18 @@
 
   /* INTRO */
   .intro {
+    border: 1px solid rgba(0,242,254,0.12);
     border-left: 3px solid var(--accent);
-    padding: 20px 28px;
-    background: white;
-    border-radius: 0 8px 8px 0;
+    padding: 22px 28px;
+    background: rgba(38,36,31,0.30);
+    border-radius: 0 14px 14px 0;
     margin-bottom: 56px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.20);
+    backdrop-filter: blur(16px);
   }
 
   .intro p {
-    color: var(--muted);
+    color: rgba(241,233,223,0.90);
     font-size: 15px;
     line-height: 1.75;
   }
@@ -164,13 +203,13 @@
   }
 
   .skill-pill {
-    background: white;
+    background: rgba(38,36,31,0.34);
     border: 1px solid var(--line);
-    border-radius: 6px;
+    border-radius: 10px;
     padding: 14px 18px;
     font-size: 13px;
     font-weight: 500;
-    color: var(--ink);
+    color: #e7ddd1;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -187,17 +226,20 @@
   .prompts { margin-bottom: 56px; }
 
   .prompt-card {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 10px;
+    background: rgba(38,36,31,0.30);
+    border: 1px solid rgba(212,168,130,0.22);
+    border-radius: 14px;
     margin-bottom: 20px;
     overflow: hidden;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-    transition: box-shadow 0.2s;
+    box-shadow: 0 16px 45px rgba(0,0,0,0.20);
+    backdrop-filter: blur(16px);
+    transition: transform 0.22s, border-color 0.22s, box-shadow 0.22s;
   }
 
   .prompt-card:hover {
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+    border-color: rgba(212,168,130,0.42);
+    box-shadow: 0 20px 55px rgba(0,0,0,0.24), 0 0 28px rgba(212,168,130,0.07);
   }
 
   .card-header {
@@ -230,36 +272,36 @@
   }
 
   .badge-branche {
-    background: #f0ece2;
-    color: #6b5e3e;
+    background: rgba(212,168,130,0.16);
+    color: #e6c7a8;
   }
 
   .badge-level {
-    background: #fdf0eb;
-    color: var(--accent);
+    background: rgba(184,111,61,0.16);
+    color: #d4a882;
   }
 
-  .badge-level.hoch { background: #fdf0eb; color: #c8522a; }
+  .badge-level.hoch { background: rgba(184,111,61,0.16); color: #e0a77d; }
   .badge-level.sehr-hoch { background: #fce8e0; color: #a8391a; }
   .badge-level.mittel { background: #f5f5ec; color: #6b6840; }
 
   .card-title {
     font-family: 'DM Serif Display', serif;
     font-size: 20px;
-    color: var(--ink);
+    color: #f4ece2;
     line-height: 1.3;
   }
 
   .card-desc {
     font-size: 13px;
-    color: var(--muted);
+    color: #b8aea2;
     margin-top: 6px;
     line-height: 1.6;
   }
 
   .chevron {
     font-size: 18px;
-    color: var(--muted);
+    color: #b8aea2;
     transition: transform 0.25s;
     flex-shrink: 0;
     margin-top: 2px;
@@ -271,6 +313,7 @@
     display: none;
     border-top: 1px solid var(--line);
     padding: 24px 28px 28px;
+    background: rgba(38,36,31,0.30);
   }
 
   .prompt-card.open .card-body { display: block; }
@@ -280,21 +323,21 @@
     font-weight: 500;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--muted);
+    color: #b8aea2;
     margin-bottom: 10px;
   }
 
   .card-body h4 + h4 { margin-top: 20px; }
 
   .prompt-box {
-    background: #f8f6f1;
-    border: 1px solid var(--line);
+    background: rgba(20,18,15,0.30);
+    border: 1px solid rgba(212,168,130,0.18);
     border-radius: 6px;
     padding: 16px 20px;
     font-family: 'DM Mono', 'Courier New', monospace;
     font-size: 12.5px;
     line-height: 1.7;
-    color: #3a3830;
+    color: #cfc4b8;
     white-space: pre-wrap;
     word-break: break-word;
     max-height: 320px;
@@ -310,7 +353,7 @@
 
   .why-list li {
     font-size: 13.5px;
-    color: var(--muted);
+    color: #b8aea2;
     padding-left: 20px;
     position: relative;
     line-height: 1.6;
@@ -326,11 +369,14 @@
 
   /* WHAT I LEARNED */
   .learnings {
-    background: var(--ink);
+    background: linear-gradient(135deg, rgba(38,36,31,0.30), rgba(66,58,49,0.30));
     color: var(--paper);
-    border-radius: 10px;
+    border: 1px solid rgba(212,168,130,0.22);
+    border-radius: 14px;
     padding: 36px 40px;
     margin-bottom: 56px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.24);
+    backdrop-filter: blur(16px);
   }
 
   .learnings h3 {
@@ -347,18 +393,18 @@
   }
 
   .learning-item {
-    background: rgba(255,255,255,0.06);
+    background: rgba(255,255,255,0.045);
     border-radius: 6px;
     padding: 16px 18px;
     font-size: 13px;
-    color: rgba(245,242,235,0.7);
+    color: rgba(241,233,223,0.78);
     line-height: 1.6;
     border: 1px solid rgba(255,255,255,0.08);
   }
 
   .learning-item strong {
     display: block;
-    color: #d4a882;
+    color: var(--accent);
     font-weight: 500;
     margin-bottom: 4px;
     font-size: 13px;
@@ -370,9 +416,10 @@
     padding: 32px 40px;
     text-align: center;
     font-size: 13px;
-    color: var(--muted);
+    color: #b8aea2;
     max-width: 860px;
     margin: 0 auto;
+    position: relative;
   }
 
   @media (max-width: 600px) {
@@ -386,24 +433,25 @@
 </style>
 </head>
 <body>
+<canvas id="wave-background"></canvas>
 
 <header>
   <div class="header-inner">
     <div class="tag">Prompt Engineering & Automation Portfolio</div>
     <h1>KI & <em>Automatisierung</em> in der Praxis</h1>
-    <p class="subtitle">Anwendungsnahes Prompt Engineering kombiniert mit n8n-Workflow-Automatisierung — entwickelt, orchestriert und verfeinert aus der Praxis heraus.</p>
+    <p class="subtitle">Ich entwickle praxisnahe KI-Systeme, Automationen und Web-Anwendungen – von strukturierten Prompts und Agentenlogik bis zu eigenen Frontends und selbst gehosteten Workflows.</p>
     <div class="meta-row">
       <div class="meta-item">
         <strong>Projekte</strong>
-        12 realisierte Workflows & Systems
+        Mehrere eigene KI-Systeme & Automationen
       </div>
       <div class="meta-item">
         <strong>Schwerpunkt</strong>
-        n8n Automatisierung & KI-Service
+        KI-Systeme, Automatisierung & Web
       </div>
       <div class="meta-item">
         <strong>Tech Stack</strong>
-        n8n (Self-Hosted), Make, OpenAI, Claude, Gemini, Webhooks
+        n8n (Self-Hosted), Webhooks, APIs, OpenAI, Gemini, Claude
       </div>
       <div class="meta-item">
         <strong>Stand</strong>
@@ -416,22 +464,117 @@
 <main>
 
   <div class="intro">
-    <p>Ich verknüpfe fundierte Praxiserfahrung aus Callcenter, Kundenservice und Selbstständigkeit mit moderner KI-Orchestrierung. Mein Fokus liegt darauf, Sprachmodelle nicht nur isoliert zu nutzen, sondern sie über <strong>n8n und No-Code-Workflows</strong> nahtlos in reale Arbeitsprozesse einzubinden.</p>
-    <p>Die folgenden Beispiele zeigen mein Systemdenken: modular strukturierte Prompts, automatisierte Webhook-Pipelines, rechtliche Sicherheitsnetze (DSGVO/AGG) und strikte Fallback-Logiken.</p>
+    <p>Ich verbinde meine Praxiserfahrung aus Kundenservice, Kommunikation und Selbstständigkeit mit moderner KI-Entwicklung. Dabei nutze ich KI nicht nur als Chatwerkzeug, sondern baue daraus <strong>funktionierende Systeme, Automationen und eigene Anwendungen</strong>.</p>
+    <p>Die Projekte zeigen meinen Ansatz: modular denken, Prozesse automatisieren, KI-Ausgaben kontrollieren und Systeme so bauen, dass sie praktisch einsetzbar bleiben.</p>
   </div>
 
   <div class="section-label">Kernkompetenzen & Tech-Skills</div>
   <div class="skills-grid">
     <div class="skill-pill"><span class="dot"></span>n8n Workflows & Self-Hosting</div>
     <div class="skill-pill"><span class="dot"></span>Webhook & API-Anbindungen</div>
-    <div class="skill-pill"><span class="dot"></span>Multi-Agent Systeme</div>
-    <div class="skill-pill"><span class="dot"></span>JSON Data Transformation</div>
+    <div class="skill-pill"><span class="dot"></span>KI-Agenten & Orchestrierung</div>
     <div class="skill-pill"><span class="dot"></span>System-Prompts & Guardrails</div>
-    <div class="skill-pill"><span class="dot"></span>DSGVO & AGG Compliance</div>
-    <div class="skill-pill"><span class="dot"></span>Make.com / Automationen</div>
-    <div class="skill-pill"><span class="dot"></span>Fallback- & Error-Handling</div>
-    <div class="skill-pill"><span class="dot"></span>Tonsteuerung & Kundentypen</div>
     <div class="skill-pill"><span class="dot"></span>Prompt-Testing & Routing</div>
+    <div class="skill-pill"><span class="dot"></span>JSON & strukturierte Daten</div>
+    <div class="skill-pill"><span class="dot"></span>Webentwicklung mit HTML/CSS/JS</div>
+    <div class="skill-pill"><span class="dot"></span>Make.com & Automatisierung</div>
+    <div class="skill-pill"><span class="dot"></span>Fallback- & Error-Handling</div>
+    <div class="skill-pill"><span class="dot"></span>DSGVO & AGG als Systemregeln</div>
+  </div>
+
+  <div class="section-label">Eigene Systeme & Projekte</div>
+  <div class="prompts">
+
+    <div class="prompt-card" onclick="toggle(this)">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-meta">
+            <span class="badge badge-branche">Web-App / KI</span>
+            <span class="badge badge-level sehr-hoch">Eigenentwicklung</span>
+          </div>
+          <div class="card-title">JobFit AI — KI-gestützte Bewerbungsanalyse</div>
+          <div class="card-desc">Eigene Web-Anwendung zur Analyse von Stellenanzeigen und zur Erstellung passgenauer Bewerbungsunterlagen.</div>
+        </div>
+        <div class="chevron">↓</div>
+      </div>
+      <div class="card-body">
+        <h4>Projekt</h4>
+        <div class="prompt-box">JobFit AI verbindet ein eigenes Web-Frontend mit einem selbst gehosteten n8n-Backend.
+
+→ Stellenanzeigen werden strukturiert analysiert
+→ Anforderungen und relevante Kompetenzen werden herausgearbeitet
+→ Die Ergebnisse dienen als Grundlage für passgenaue Bewerbungsunterlagen
+→ Kommunikation zwischen Frontend und Backend über Webhooks
+
+TECHNIK
+→ HTML5 / CSS3 / Vanilla JavaScript
+→ n8n Self-Hosted
+→ Webhooks / API-Anbindung
+→ eigenes Server-Setup
+→ interaktive WebGL-Partikeloberfläche</div>
+        <h4>Warum so gebaut</h4>
+        <ul class="why-list">
+          <li>Eigenständiges Projekt von der Idee bis zur funktionierenden Web-Anwendung</li>
+          <li>Verbindet KI-Logik, Automatisierung, Backend und Frontend</li>
+          <li>Bewusster Fokus auf Datenschutz und kontrollierte Datenflüsse</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="prompt-card" onclick="toggle(this)">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-meta">
+            <span class="badge badge-branche">KI-Agent / Automation</span>
+            <span class="badge badge-level sehr-hoch">Eigenentwicklung</span>
+          </div>
+          <div class="card-title">IRIS — Eigener KI-Agent</div>
+          <div class="card-desc">Eigener KI-Agent mit Fokus auf Agentenlogik, Kontextverarbeitung und Anbindung an Automatisierungsprozesse.</div>
+        </div>
+        <div class="chevron">↓</div>
+      </div>
+      <div class="card-body">
+        <h4>Projekt</h4>
+        <div class="prompt-box">IRIS ist ein selbst entwickelter KI-Agent, der in die eigene Automatisierungsumgebung eingebunden wurde.
+
+→ Agentenlogik für unterschiedliche Aufgaben
+→ Verarbeitung von Kontext und Chat-Historien
+→ Anbindung an n8n-Workflows
+→ modular erweiterbar durch weitere Tools und APIs
+
+Der Schwerpunkt liegt nicht auf einem einzelnen Prompt, sondern auf dem Zusammenspiel aus Agent, Kontext, Workflow und Schnittstellen.</div>
+        <h4>Warum so gebaut</h4>
+        <ul class="why-list">
+          <li>Zeigt den Schritt von einzelnen Prompts hin zu eigenständigen KI-Systemen</li>
+          <li>Verbindet Agentenlogik mit realen Automatisierungsprozessen</li>
+          <li>Modular erweiterbar</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="prompt-card" onclick="toggle(this)">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-meta">
+            <span class="badge badge-branche">Web-App</span>
+            <span class="badge badge-level hoch">Eigenentwicklung</span>
+          </div>
+          <div class="card-title">Frust-Funk — kleine Web-App für Teams</div>
+          <div class="card-desc">Eigene Web-Anwendung zur niedrigschwelligen Sammlung und Verarbeitung von Team-Frust und Belastungen.</div>
+        </div>
+        <div class="chevron">↓</div>
+      </div>
+      <div class="card-body">
+        <h4>Technik & Ansatz</h4>
+        <div class="prompt-box">→ Web-App mit eigenem Frontend
+→ Entwicklung mit Bolt.new
+→ Datenhaltung über Supabase
+→ Fokus auf einfache Bedienung und einen klaren Anwendungsfall
+
+Das Projekt zeigt, wie aus einer konkreten Alltagssituation mit modernen KI- und Low-Code-Werkzeugen schnell eine funktionierende Anwendung entstehen kann.</div>
+      </div>
+    </div>
+
   </div>
 
   <div class="section-label">Automatisierungen & Prompt-Systeme</div>
@@ -882,20 +1025,266 @@ Live unter: https://missblack1992.github.io/Alltagshelfer/</div>
         <strong>Iteratives Testing</strong>
         Erst Stresstests mit fehlerhaften oder aggressiven Nutzereingaben machen eine Automatisierung produktionsreif.
       </div>
+      <div class="learning-item">
+        <strong>Eigene Infrastruktur</strong>
+        n8n läuft selbst gehostet auf einem IONOS vServer und bildet die Grundlage für dauerhaft verfügbare Automationen.
+      </div>
+      <div class="learning-item">
+        <strong>Vom Prompt zur Anwendung</strong>
+        Gute KI-Logik wird erst dann interessant, wenn sie in Frontends, Workflows und reale Prozesse eingebettet wird.
+      </div>
     </div>
   </div>
 
   <div class="section-label">Hintergrund & Motivation</div>
   <div class="intro">
     <p>Mein Weg führt über echte Praxisstationen: Fahrzeuglackierung, Handel, Finanzbereich, Handy-Reparatur, Callcenter und Kundenservice. Ich kenne die realen Probleme, an denen Kundenschnittstellen im Alltag scheitern.</p>
-    <p>Diese Erfahrung kombiniere ich mit moderner Automatisierungstechnik (n8n, Make, Webhooks) und präzisem Prompt Engineering. Mein Ziel: Pragmatische Systeme bauen, die Arbeit abnehmen, rechtssicher sind und echten Mehrwert stiften.</p>
+    <p>Diese Erfahrung kombiniere ich mit KI, Automatisierung, Webentwicklung und präzisem Prompt Engineering. Mein Ziel: Systeme bauen, die nicht nur technisch funktionieren, sondern einen konkreten Prozess besser, schneller oder einfacher machen.</p>
   </div>
 
 </main>
 
 <footer>
-  Prompt Engineering & Automation Portfolio · Erstellt August 2026 · Alle Prompts & Workflows selbst entwickelt und getestet
+  KI · Prompt Engineering · Automation · Portfolio · August 2026
 </footer>
+
+
+<script>
+(() => {
+  const canvas = document.getElementById("wave-background");
+  const gl = canvas.getContext("webgl", { antialias: true, alpha: true, powerPreference: "high-performance" });
+  if (!gl) return;
+
+  const vertexShaderSource = `
+    attribute vec2 a_seed;
+    attribute float a_size;
+    attribute float a_layer;
+    attribute float a_random;
+    attribute float a_type;
+    attribute float a_palette;
+    uniform float u_time;
+    uniform vec2 u_mouse;
+    varying float v_brightness;
+    varying float v_color;
+    varying float v_palette;
+
+    void main() {
+      float x = a_seed.x;
+      float spread = a_seed.y;
+
+      if (a_type > 0.5) {
+        float driftX = sin(u_time * 0.08 + a_random * 18.0) * 0.035;
+        float driftY = cos(u_time * 0.06 + a_random * 15.0) * 0.025;
+        vec2 p = vec2(x + driftX, spread + driftY);
+        vec2 d = p - u_mouse;
+        float dist = length(d);
+
+        if (dist < 0.20 && dist > 0.001) {
+          float influence = pow(1.0 - dist / 0.20, 2.0);
+          p += normalize(d) * influence * 0.035;
+        }
+
+        gl_Position = vec4(p, 0.0, 1.0);
+        gl_PointSize = a_size * 0.8;
+        v_brightness = 0.18 + a_random * 0.32;
+        v_color = a_random;
+        v_palette = a_palette;
+        return;
+      }
+
+      float waveA = sin(x * 3.0 + u_time * 0.62 + a_layer * 2.4) * 0.105;
+      float waveB = sin(x * 6.4 - u_time * 0.40 + a_layer * 5.2) * 0.065;
+      float waveC = sin(x * 12.5 + u_time * 0.25 + a_random * 10.0) * 0.026;
+      float waveD = sin(x * 1.55 - u_time * 0.23 + a_layer * 8.0) * 0.075;
+      float fold = sin(x * 4.7 + a_layer * 9.0 + u_time * 0.34) * sin(x * 3.14159) * 0.075;
+      float layerOffset = (a_layer - 0.5) * 0.30 + sin(a_layer * 18.0 + x * 2.2) * 0.035;
+
+      vec2 p = vec2(x, waveA + waveB + waveC + waveD + fold + layerOffset + spread);
+      vec2 d = p - u_mouse;
+      float dist = length(d);
+
+      if (dist < 0.20 && dist > 0.001) {
+        float influence = pow(1.0 - dist / 0.20, 2.0);
+        p += normalize(d) * influence * 0.055;
+      }
+
+      gl_Position = vec4(p, 0.0, 1.0);
+      gl_PointSize = a_size;
+      v_brightness = 0.30 + a_random * 0.58 + (1.0 - abs(x)) * 0.12;
+      v_color = 0.12 + a_random * 0.88;
+      v_palette = a_palette;
+    }
+  `;
+
+  const fragmentShaderSource = `
+    precision mediump float;
+    varying float v_brightness;
+    varying float v_color;
+    varying float v_palette;
+
+    void main() {
+      vec2 p = gl_PointCoord - 0.5;
+      float d = length(p);
+      float soft = smoothstep(0.5, 0.0, d);
+      float core = smoothstep(0.18, 0.0, d);
+
+      vec3 deepBlue = vec3(0.32, 0.25, 0.19);
+      vec3 electricBlue = vec3(0.56, 0.38, 0.22);
+      vec3 cyan = vec3(0.70, 0.53, 0.36);
+      vec3 violet = vec3(0.40, 0.32, 0.26);
+      vec3 purple = vec3(0.55, 0.42, 0.33);
+      vec3 magenta = vec3(0.66, 0.36, 0.43);
+      vec3 whiteViolet = vec3(0.96, 0.91, 0.84);
+
+      vec3 baseColor;
+      if (v_palette < 0.16)
+        baseColor = mix(deepBlue, electricBlue, v_palette / 0.16);
+      else if (v_palette < 0.30)
+        baseColor = mix(electricBlue, cyan, (v_palette - 0.16) / 0.14);
+      else if (v_palette < 0.62)
+        baseColor = mix(cyan, violet, (v_palette - 0.30) / 0.32);
+      else if (v_palette < 0.82)
+        baseColor = mix(violet, purple, (v_palette - 0.62) / 0.20);
+      else
+        baseColor = mix(purple, magenta, (v_palette - 0.82) / 0.18);
+
+      vec3 color = mix(baseColor, whiteViolet, pow(v_color, 8.0) * 0.22);
+      float alpha = soft * (0.18 + v_brightness * 0.48) + core * 0.20;
+      gl_FragColor = vec4(color * (0.78 + core * 0.65), alpha);
+    }
+  `;
+
+  function compile(type, source) {
+    const shader = gl.createShader(type);
+    gl.shaderSource(shader, source);
+    gl.compileShader(shader);
+    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) return null;
+    return shader;
+  }
+
+  const vs = compile(gl.VERTEX_SHADER, vertexShaderSource);
+  const fs = compile(gl.FRAGMENT_SHADER, fragmentShaderSource);
+  if (!vs || !fs) return;
+
+  const program = gl.createProgram();
+  gl.attachShader(program, vs);
+  gl.attachShader(program, fs);
+  gl.linkProgram(program);
+  if (!gl.getProgramParameter(program, gl.LINK_STATUS)) return;
+  gl.useProgram(program);
+
+  const seedLocation = gl.getAttribLocation(program, "a_seed");
+  const sizeLocation = gl.getAttribLocation(program, "a_size");
+  const layerLocation = gl.getAttribLocation(program, "a_layer");
+  const randomLocation = gl.getAttribLocation(program, "a_random");
+  const typeLocation = gl.getAttribLocation(program, "a_type");
+  const paletteLocation = gl.getAttribLocation(program, "a_palette");
+  const timeLocation = gl.getUniformLocation(program, "u_time");
+  const mouseLocation = gl.getUniformLocation(program, "u_mouse");
+
+  const mobile = window.innerWidth < 768;
+  const waveParticleCount = mobile ? 12000 : 28000;
+  const ambientParticleCount = mobile ? 2200 : 6000;
+  const particleCount = waveParticleCount + ambientParticleCount;
+
+  const seeds = new Float32Array(particleCount * 2);
+  const sizes = new Float32Array(particleCount);
+  const layers = new Float32Array(particleCount);
+  const randoms = new Float32Array(particleCount);
+  const types = new Float32Array(particleCount);
+  const palettes = new Float32Array(particleCount);
+
+  function gaussianLike() {
+    let value = 0;
+    for (let i = 0; i < 6; i++) value += Math.random();
+    return (value / 6 - 0.5) * 2;
+  }
+
+  for (let i = 0; i < waveParticleCount; i++) {
+    const x = Math.random() * 2 - 1;
+    const broad = 0.085 + Math.random() * 0.115;
+    let spread = gaussianLike() * broad;
+    if (Math.random() < 0.10) spread *= 2.2 + Math.random() * 3.0;
+
+    seeds[i * 2] = x;
+    seeds[i * 2 + 1] = spread;
+    const r = Math.random();
+    sizes[i] = r < 0.91 ? 0.9 + Math.random() * 1.2 : r < 0.985 ? 1.7 + Math.random() * 1.8 : 2.8 + Math.random() * 3.2;
+    layers[i] = Math.random();
+    randoms[i] = Math.random();
+    types[i] = 0.0;
+
+    const roll = Math.random();
+    palettes[i] = roll < 0.14 ? Math.random() * 0.30 :
+                  roll < 0.36 ? 0.30 + Math.random() * 0.32 :
+                  roll < 0.78 ? 0.62 + Math.random() * 0.20 :
+                  0.82 + Math.random() * 0.18;
+  }
+
+  for (let i = 0; i < ambientParticleCount; i++) {
+    const index = waveParticleCount + i;
+    seeds[index * 2] = Math.random() * 2 - 1;
+    seeds[index * 2 + 1] = Math.random() * 2 - 1;
+    const r = Math.random();
+    sizes[index] = r < 0.94 ? 0.45 + Math.random() * 0.65 : r < 0.992 ? 0.9 + Math.random() * 1.2 : 1.7 + Math.random() * 2.0;
+    layers[index] = Math.random();
+    randoms[index] = Math.random();
+    types[index] = 1.0;
+
+    const roll = Math.random();
+    palettes[index] = roll < 0.42 ? Math.random() * 0.30 :
+                      roll < 0.72 ? 0.30 + Math.random() * 0.32 :
+                      roll < 0.92 ? 0.62 + Math.random() * 0.20 :
+                      0.82 + Math.random() * 0.18;
+  }
+
+  function bufferAttribute(location, data, size) {
+    const buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    gl.bufferData(gl.ARRAY_BUFFER, data, gl.STATIC_DRAW);
+    gl.enableVertexAttribArray(location);
+    gl.vertexAttribPointer(location, size, gl.FLOAT, false, 0, 0);
+  }
+
+  bufferAttribute(seedLocation, seeds, 2);
+  bufferAttribute(sizeLocation, sizes, 1);
+  bufferAttribute(layerLocation, layers, 1);
+  bufferAttribute(randomLocation, randoms, 1);
+  bufferAttribute(typeLocation, types, 1);
+  bufferAttribute(paletteLocation, palettes, 1);
+
+  gl.enable(gl.BLEND);
+  gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
+  gl.clearColor(0.0, 0.0, 0.0, 0.0);
+
+  const mouse = { x: 99, y: 99 };
+
+  window.addEventListener("mousemove", event => {
+    mouse.x = event.clientX / window.innerWidth * 2 - 1;
+    mouse.y = -((event.clientY / window.innerHeight) * 2 - 1);
+  }, { passive: true });
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.floor(window.innerWidth * dpr);
+    canvas.height = Math.floor(window.innerHeight * dpr);
+    gl.viewport(0, 0, canvas.width, canvas.height);
+  }
+
+  window.addEventListener("resize", resize, { passive: true });
+  resize();
+
+  function render(ms) {
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.uniform1f(timeLocation, ms * 0.001);
+    gl.uniform2f(mouseLocation, mouse.x, mouse.y);
+    gl.drawArrays(gl.POINTS, 0, particleCount);
+    requestAnimationFrame(render);
+  }
+
+  requestAnimationFrame(render);
+})();
+</script>
 
 <script>
 function toggle(card) {
