@@ -482,6 +482,14 @@
     <div class="skill-pill"><span class="dot"></span>DSGVO & AGG als Systemregeln</div>
   </div>
 
+  <div class="section-label">Abgeschlossene Weiterbildungen · n8n Academy</div>
+  <div class="skills-grid">
+    <div class="skill-pill"><span class="dot"></span><span><strong>n8n Quickstart</strong> – Einstieg in n8n</span></div>
+    <div class="skill-pill"><span class="dot"></span><span><strong>n8n101</strong> – Essentials: Your First Workflows</span></div>
+    <div class="skill-pill"><span class="dot"></span><span><strong>n8n102</strong> – Integrations: APIs and Connected Workflows</span></div>
+    <div class="skill-pill"><span class="dot"></span><span><strong>n8n103</strong> – In Practice: AI, Testing, and Best Practices</span></div>
+  </div>
+
   <div class="section-label">Eigene Systeme & Projekte</div>
   <div class="prompts">
 
@@ -525,29 +533,38 @@ TECHNIK
       <div class="card-header">
         <div class="card-header-left">
           <div class="card-meta">
-            <span class="badge badge-branche">KI-Agent / Automation</span>
+            <span class="badge badge-branche">KI-Agent / n8n Automation</span>
             <span class="badge badge-level sehr-hoch">Eigenentwicklung</span>
           </div>
-          <div class="card-title">IRIS — Eigener KI-Agent</div>
-          <div class="card-desc">Eigener KI-Agent mit Fokus auf Agentenlogik, Kontextverarbeitung und Anbindung an Automatisierungsprozesse.</div>
+          <div class="card-title">HealthDeskOrchestrator — Multi-Agent-System</div>
+          <div class="card-desc">Modulare n8n-Orchestrierung für Kundenanfragen mit spezialisierten Agenten, strukturiertem Routing und menschlicher Eskalation.</div>
         </div>
         <div class="chevron">↓</div>
       </div>
       <div class="card-body">
-        <h4>Projekt</h4>
-        <div class="prompt-box">IRIS ist ein selbst entwickelter KI-Agent, der in die eigene Automatisierungsumgebung eingebunden wurde.
+        <h4>Projekt & Architektur</h4>
+        <div class="prompt-box">HealthDeskOrchestrator ist ein modulares Automatisierungssystem für die strukturierte Verarbeitung und Weiterleitung von Kundenanfragen.
 
-→ Agentenlogik für unterschiedliche Aufgaben
-→ Verarbeitung von Kontext und Chat-Historien
-→ Anbindung an n8n-Workflows
-→ modular erweiterbar durch weitere Tools und APIs
+→ Zentraler Orchestrator zur Analyse und Steuerung eingehender Anfragen
+→ Spezialisierte Subworkflows: SW_InfoAgent, SW_StatusAgent und SW_SpecialistAgent
+→ Regelbasiertes Routing anhand von Anfrage und Kontext
+→ Menschliche Übergabe über Human-Emergency und Human-Fallback
+→ Zusammenführung von Übergaben über HumanHandoffMerge
+→ Fehlerbehandlung und kontrollierte Weiterleitung bei Problemen
+→ Optionale Erweiterung um RAG / Vector Database
 
-Der Schwerpunkt liegt nicht auf einem einzelnen Prompt, sondern auf dem Zusammenspiel aus Agent, Kontext, Workflow und Schnittstellen.</div>
+TECHNIK
+→ n8n Self-Hosted
+→ Modulare Subworkflows
+→ KI-Agenten und strukturierte Ausgaben
+→ Routing, Fallbacks und Error-Handling
+→ Webhooks und API-Integrationen</div>
         <h4>Warum so gebaut</h4>
         <ul class="why-list">
-          <li>Zeigt den Schritt von einzelnen Prompts hin zu eigenständigen KI-Systemen</li>
-          <li>Verbindet Agentenlogik mit realen Automatisierungsprozessen</li>
-          <li>Modular erweiterbar</li>
+          <li>Verteilt Aufgaben auf spezialisierte Agenten statt einen einzelnen Prompt für alles zu verwenden</li>
+          <li>Trennt Routing, Fachlogik und menschliche Eskalation in eigenständige Workflow-Bausteine</li>
+          <li>Berücksichtigt Fehlerfälle und Übergaben an menschliche Mitarbeitende</li>
+          <li>Modular erweiterbar und auf weitere Anwendungsfälle übertragbar</li>
         </ul>
       </div>
     </div>
@@ -556,22 +573,55 @@ Der Schwerpunkt liegt nicht auf einem einzelnen Prompt, sondern auf dem Zusammen
       <div class="card-header">
         <div class="card-header-left">
           <div class="card-meta">
-            <span class="badge badge-branche">Web-App</span>
-            <span class="badge badge-level hoch">Eigenentwicklung</span>
+            <span class="badge badge-branche">Discord / Bot</span>
+            <span class="badge badge-level hoch">Im Einsatz</span>
           </div>
-          <div class="card-title">Frust-Funk — kleine Web-App für Teams</div>
-          <div class="card-desc">Eigene Web-Anwendung zur niedrigschwelligen Sammlung und Verarbeitung von Team-Frust und Belastungen.</div>
+          <div class="card-title">Discord-Bot — eigener Serverbetrieb</div>
+          <div class="card-desc">Eigener Discord-Bot, der über einen kleinen Server betrieben wird und bereits praktisch in Benutzung ist.</div>
         </div>
         <div class="chevron">↓</div>
       </div>
       <div class="card-body">
-        <h4>Technik & Ansatz</h4>
-        <div class="prompt-box">→ Web-App mit eigenem Frontend
-→ Entwicklung mit Bolt.new
-→ Datenhaltung über Supabase
-→ Fokus auf einfache Bedienung und einen klaren Anwendungsfall
+        <h4>Projekt & Betrieb</h4>
+        <div class="prompt-box">→ Eigener Discord-Bot
+→ Betrieb über einen kleinen Server
+→ Funktionierendes Projekt im praktischen Einsatz
 
-Das Projekt zeigt, wie aus einer konkreten Alltagssituation mit modernen KI- und Low-Code-Werkzeugen schnell eine funktionierende Anwendung entstehen kann.</div>
+Der Bot ist nicht nur ein Konzept, sondern läuft bereits in einer realen Umgebung.</div>
+        <h4>Was das Projekt zeigt</h4>
+        <ul class="why-list">
+          <li>Umsetzung eines Bots bis zum laufenden Betrieb</li>
+          <li>Erfahrung mit Serverbetrieb und dem Bereitstellen eigener Projekte</li>
+          <li>Praktische Nutzung statt reinem Prototyp</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="prompt-card" onclick="toggle(this)">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-meta">
+            <span class="badge badge-branche">Streamer.bot / Automation</span>
+            <span class="badge badge-level hoch">Im Einsatz</span>
+          </div>
+          <div class="card-title">Streamer.bot — First Words</div>
+          <div class="card-desc">Funktionierende First-Words-Umsetzung mit Streamer.bot, die über einen kleinen Server betrieben und praktisch genutzt wird.</div>
+        </div>
+        <div class="chevron">↓</div>
+      </div>
+      <div class="card-body">
+        <h4>Projekt & Betrieb</h4>
+        <div class="prompt-box">→ First-Words-Funktion mit Streamer.bot
+→ Betrieb über einen kleinen Server
+→ Funktionierender Einsatz in der Praxis
+
+Das Projekt verbindet Streaming-Automatisierung mit einem laufenden technischen Setup.</div>
+        <h4>Was das Projekt zeigt</h4>
+        <ul class="why-list">
+          <li>Automatisierung für einen konkreten Anwendungsfall</li>
+          <li>Integration in eine tatsächlich genutzte Umgebung</li>
+          <li>Umsetzung und Betrieb über den reinen Test hinaus</li>
+        </ul>
       </div>
     </div>
 
